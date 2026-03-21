@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════════════════════
+   ISA — Glassmorphism System
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Dark Glass (Capsule, Nav Overlay) ────────────── */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(1.2);
+    -webkit-backdrop-filter: blur(24px) saturate(1.2);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 var(--glass-highlight);
+}
+
+/* ─── Heavy Dark Glass (Menu, Popups) ──────────────── */
+.glass-heavy {
+    background: var(--glass-bg-heavy);
+    backdrop-filter: blur(40px) saturate(1.4);
+    -webkit-backdrop-filter: blur(40px) saturate(1.4);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+        0 16px 64px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 var(--glass-highlight);
+}
+
+/* ─── Popup Glass (Story Popups, Modals) ───────────── */
+.glass-popup {
+    background: rgba(26, 26, 26, 0.75);
+    backdrop-filter: blur(50px) saturate(1.5);
+    -webkit-backdrop-filter: blur(50px) saturate(1.5);
+    border: 1px solid rgba(212, 197, 169, 0.15);
+    box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(245, 240, 232, 0.06),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Light Glass (Cards, Hover states) ────────────── */
+.glass-light {
+    background: rgba(42, 42, 42, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 240, 232, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Overlay Backdrop ─────────────────────────────── */
+.glass-overlay-backdrop {
+    background: rgba(13, 13, 13, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Glass Button ─────────────────────────────────── */
+.btn-glass {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.4rem;
+    background: rgba(196, 169, 125, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(196, 169, 125, 0.2);
+    border-radius: var(--radius-pill);
+    color: var(--color-sand-light);
+    font-family: var(--font-body);
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196, 169, 125, 0.15), transparent);
+    opacity: 0;
+    transition: opacity var(--duration-fast) ease;
+}
+
+.btn-glass:hover {
+    border-color: rgba(196, 169, 125, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(196, 169, 125, 0.15);
+}
+
+.btn-glass:hover::before {
+    opacity: 1;
+}
+
+.btn-glass:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ─── Solid Accent Button ──────────────────────────── */
+.btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1.8rem;
+    background: linear-gradient(135deg, var(--color-sand), var(--color-chocolate-light));
+    border: none;
+    border-radius: var(--radius-pill);
+    color: var(--color-ivory);
+    font-family: var(--font-body);
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-out-expo);
+    box-shadow: 0 4px 16px rgba(196, 169, 125, 0.3);
+}
+
+.btn-accent:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(196, 169, 125, 0.4);
+    filter: brightness(1.1);
+}
+
+.btn-accent:active {
+    transform: translateY(0) scale(0.97);
+}

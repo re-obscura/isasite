@@ -1,0 +1,92 @@
+/* ═══════════════════════════════════════════════════════
+   ISA — Premium Architecture & Design — Design Tokens
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+    /* ─── Color Palette ──────────────────────────────── */
+    --color-black: #141414;
+    --color-graphite: #222222;
+    --color-graphite-mid: #2E2E2E;
+    --color-graphite-light: #424242;
+    --color-chocolate: #3C2415;
+    --color-chocolate-light: #5A3A28;
+
+    --color-ivory: #F5F0E8;
+    --color-beige: #D4C5A9;
+    --color-sand: #C4A97D;
+    --color-sand-light: #D9C9A5;
+    --color-warm-white: #FAF7F2;
+
+    /* ─── Glass Colors ───────────────────────────────── */
+    --glass-bg: rgba(30, 30, 30, 0.6);
+    --glass-bg-heavy: rgba(18, 18, 18, 0.75);
+    --glass-border: rgba(212, 197, 169, 0.15);
+    --glass-border-light: rgba(245, 240, 232, 0.1);
+    --glass-highlight: rgba(245, 240, 232, 0.06);
+
+    /* ─── Typography ─────────────────────────────────── */
+    --font-heading: 'Oswald', 'Arial Narrow', sans-serif;
+    --font-serif: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+    --fs-display: clamp(2.2rem, 4.5vw, 3.6rem);
+    --fs-h1: clamp(1.6rem, 3vw, 2.4rem);
+    --fs-h2: clamp(1.3rem, 2.2vw, 1.8rem);
+    --fs-h3: clamp(0.95rem, 1.5vw, 1.2rem);
+    --fs-body: clamp(0.82rem, 0.9vw, 0.92rem);
+    --fs-small: clamp(0.7rem, 0.78vw, 0.8rem);
+    --fs-caption: clamp(0.58rem, 0.65vw, 0.68rem);
+
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+    --fw-black: 900;
+
+    --lh-tight: 1.05;
+    --lh-heading: 1.15;
+    --lh-body: 1.6;
+
+    --ls-wide: 0.15em;
+    --ls-wider: 0.25em;
+
+    /* ─── Spacing ────────────────────────────────────── */
+    --space-xs: 0.35rem;
+    --space-sm: 0.7rem;
+    --space-md: 1rem;
+    --space-lg: 1.8rem;
+    --space-xl: 2.8rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    --space-4xl: 10rem;
+
+    --container-max: 1800px;
+    --side-padding: clamp(1.5rem, 4vw, 4rem);
+
+    /* ─── Transitions ────────────────────────────────── */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+
+    --duration-fast: 0.2s;
+    --duration-normal: 0.4s;
+    --duration-slow: 0.7s;
+    --duration-slower: 1.2s;
+
+    /* ─── Borders & Radius ───────────────────────────── */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-pill: 100px;
+    --radius-full: 50%;
+
+    /* ─── Z-index ────────────────────────────────────── */
+    --z-base: 1;
+    --z-capsule: 100;
+    --z-header: 200;
+    --z-overlay: 500;
+    --z-modal: 600;
+    --z-preloader: 1000;
+}

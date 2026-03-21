@@ -1,0 +1,224 @@
+/* ═══════════════════════════════════════════════════════
+   ISA — Dynamic Effect Styles (Clean, No Gimmicks)
+   ═══════════════════════════════════════════════════════ */
+
+/* ━━━ IMAGE REVEAL (TRANSFORM-BASED, SAFE) ━━━━━━━━━━ */
+
+.img-reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
+}
+
+.img-reveal.img-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ━━━ ANIMATED GRADIENT BORDER ON GLASS CARD ━━━━━━━━ */
+
+.hero__glass-card {
+    position: relative;
+    background: transparent;
+    border: none;
+    isolation: isolate;
+    /* 3D Variables mapped by JS */
+    --glow-x: 50%;
+    --glow-y: 50%;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Mouse-tracking Inner Glow for 3D Tilt */
+.hero__glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    background: radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+            rgba(255, 255, 255, 0.08),
+            transparent 40%);
+    z-index: 10;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+/* Animated Gradient Border Layer */
+.hero__glass-card-border {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    padding: 1px;
+    background: linear-gradient(135deg,
+            rgba(196, 169, 125, 0.35),
+            rgba(90, 58, 40, 0.1),
+            rgba(196, 169, 125, 0.25),
+            rgba(90, 58, 40, 0.05),
+            rgba(196, 169, 125, 0.35));
+    background-size: 300% 300%;
+    animation: gradientBorder 6s ease-in-out infinite;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Base glass background */
+.hero__glass-card::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: calc(var(--radius-lg) - 1px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(1.2);
+    -webkit-backdrop-filter: blur(24px) saturate(1.2);
+    z-index: -1;
+}
+
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* (Ken Burns / bloom animation removed) */
+
+/* ━━━ STORIES RING ANIMATION ━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.stories__circle::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
+    background: linear-gradient(var(--color-graphite),
+            var(--color-graphite)) padding-box,
+        conic-gradient(from 0deg,
+            rgba(196, 169, 125, 0.45),
+            transparent 30%,
+            transparent 70%,
+            rgba(196, 169, 125, 0.45)) border-box;
+    animation: ringRotate 8s linear infinite;
+    z-index: -1;
+}
+
+.stories__item:nth-child(2n) .stories__circle::after {
+    animation-direction: reverse;
+    animation-duration: 10s;
+}
+
+@keyframes ringRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ━━━ TITLE UNDERLINES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.portfolio__title {
+    position: relative;
+    display: inline-block;
+}
+
+.portfolio__title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(to right, var(--color-sand), transparent);
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio__title.revealed::after {
+    width: 100%;
+}
+
+/* ━━━ CUSTOM LENS CURSOR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.lens-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--color-ivory);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate3d(-100px, -100px, 0);
+    mix-blend-mode: exclusion;
+    transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), background 0.4s var(--ease-out-expo), margin-top 0.4s var(--ease-out-expo), margin-left 0.4s var(--ease-out-expo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lens-cursor__text {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-black);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.3s ease, transform 0.4s var(--ease-out-expo);
+}
+
+/* Active Hover State (Lens mode) */
+.lens-cursor.lens-cursor--active {
+    width: 90px;
+    height: 90px;
+    margin-top: -39px;
+    margin-left: -39px;
+    background: var(--color-sand);
+    mix-blend-mode: normal;
+}
+
+.lens-cursor.lens-cursor--active .lens-cursor__text {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Hidden state */
+.lens-cursor.lens-cursor--hidden {
+    opacity: 0;
+    transform: scale(0) !important;
+}
+
+/* ━━━ REDUCED MOTION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@media (prefers-reduced-motion: reduce) {
+    .orn-draw {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+
+    .orn-pulse {
+        animation: none;
+        opacity: 0.5;
+    }
+
+    .stories__circle::after {
+        animation: none;
+    }
+
+    .img-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
