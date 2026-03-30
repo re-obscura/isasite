@@ -24,7 +24,6 @@ export function createHero() {
 
       <!-- Top meta -->
       <div class="hero__top">
-        <span class="hero__label">Est. 2026 — Грозный</span>
         <span class="hero__label">Архитектура &amp; Дизайн</span>
       </div>
 

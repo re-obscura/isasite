@@ -5,18 +5,19 @@
 import heroBg from '../assets/hero-bg.png';
 
 export function createImageBreak() {
-    const section = document.createElement('div');
-    section.className = 'image-break';
+  const section = document.createElement('div');
+  section.className = 'image-break';
 
-    section.innerHTML = `
+  section.innerHTML = `
     <div class="image-break__media">
       <img src="${heroBg}" alt="Архитектура ISA" loading="lazy" />
     </div>
     <div class="image-break__overlay"></div>
     <div class="image-break__caption">
+      <div class="image-break__caption-glass"></div>
       <span class="image-break__caption-text">Архитектура, которая вдохновляет</span>
     </div>
   `;
 
-    return section;
+  return section;
 }

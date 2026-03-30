@@ -43,37 +43,42 @@ export function initStories() {
   const cards = gsap.utils.toArray('.story-card');
 
   if (track && cards.length > 0) {
-    const totalWidth = track.scrollWidth - window.innerWidth;
+    // Only activate horizontal scroll on desktop (>900px)
+    ScrollTrigger.matchMedia({
+      "(min-width: 901px)": function () {
+        const totalWidth = track.scrollWidth - window.innerWidth;
 
-    const scrollTween = gsap.to(track, {
-      x: -totalWidth,
-      ease: "none",
-      id: "horizontal-scroll",
-      scrollTrigger: {
-        trigger: ".stories-section",
-        pin: true,
-        scrub: 1,
-        end: () => "+=" + track.scrollWidth,
-      }
-    });
-
-    // Parallax on images inside horizontal scroll
-    cards.forEach(card => {
-      const img = card.querySelector('.story-card__img');
-      gsap.fromTo(img,
-        { xPercent: -10 },
-        {
-          xPercent: 10,
+        const scrollTween = gsap.to(track, {
+          x: -totalWidth,
           ease: "none",
+          id: "horizontal-scroll",
           scrollTrigger: {
-            trigger: card,
-            containerAnimation: scrollTween,
-            start: "left right",
-            end: "right left",
-            scrub: true,
+            trigger: ".stories-section",
+            pin: true,
+            scrub: 1,
+            end: () => "+=" + track.scrollWidth,
           }
-        }
-      );
+        });
+
+        // Parallax on images inside horizontal scroll
+        cards.forEach(card => {
+          const img = card.querySelector('.story-card__img');
+          gsap.fromTo(img,
+            { xPercent: -10 },
+            {
+              xPercent: 10,
+              ease: "none",
+              scrollTrigger: {
+                trigger: card,
+                containerAnimation: scrollTween,
+                start: "left right",
+                end: "right left",
+                scrub: true,
+              }
+            }
+          );
+        });
+      }
     });
   }
 }
