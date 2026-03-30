@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&family=Oswald:wght@300;400;500;600;700&display=swap');/* ═══════════════════════════════════════════════════════
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Geologica:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');/* ═══════════════════════════════════════════════════════
    ISA — Premium Architecture & Design — Design Tokens
    ═══════════════════════════════════════════════════════ */
 
@@ -14,9 +14,9 @@
 
     --color-ivory: #F8F6F0;
     --color-white: #FFFFFF;
-    --color-sand: #e2c68a;
-    --color-sand-light: #f0d9a0;
-    --color-beige: #d4b87a;
+    --color-sand: #b89650;
+    --color-sand-light: #c9a55e;
+    --color-beige: #a07d3a;
     --color-chocolate-light: #8a6a42;
 
     /* Light theme surfaces & brand colors */
@@ -37,9 +37,9 @@
     --glass-highlight: rgba(255, 255, 255, 0.03);
 
     /* ─── Typography (All Sans-Serif) ────────────────── */
-    --font-heading: 'Oswald', 'Inter', sans-serif;
-    --font-heading-alt: 'Oswald', sans-serif;
-    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-heading-alt: 'Cormorant Garamond', 'Georgia', serif;
+    --font-body: 'Geologica', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     /* Extreme Fluid Typography Scale */
