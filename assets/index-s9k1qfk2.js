@@ -80,14 +80,56 @@
   `).join(``)}
       </div>
     </div>
-  `,e}function bc(){let e=document.querySelector(`.stories-track`),t=hi.utils.toArray(`.story-card`);e&&t.length>0&&$.matchMedia({"(min-width: 901px)":function(){let n=e.scrollWidth-window.innerWidth,r=hi.to(e,{x:-n,ease:`none`,id:`horizontal-scroll`,scrollTrigger:{trigger:`.stories-section`,pin:!0,scrub:1,end:()=>`+=`+e.scrollWidth}});t.forEach(e=>{let t=e.querySelector(`.story-card__img`);hi.fromTo(t,{xPercent:-10},{xPercent:10,ease:`none`,scrollTrigger:{trigger:e,containerAnimation:r,start:`left right`,end:`right left`,scrub:!0}})})}})}function xc(){let e=document.createElement(`div`);return e.className=`image-break`,e.innerHTML=`
-    <div class="image-break__media">
-      <img src="${nc}" alt="Архитектура ISA" loading="lazy" />
+  `,e}function bc(){let e=document.querySelector(`.stories-track`),t=hi.utils.toArray(`.story-card`);e&&t.length>0&&$.matchMedia({"(min-width: 901px)":function(){let n=e.scrollWidth-window.innerWidth,r=hi.to(e,{x:-n,ease:`none`,id:`horizontal-scroll`,scrollTrigger:{trigger:`.stories-section`,pin:!0,scrub:1,end:()=>`+=`+e.scrollWidth}});t.forEach(e=>{let t=e.querySelector(`.story-card__img`);hi.fromTo(t,{xPercent:-10},{xPercent:10,ease:`none`,scrollTrigger:{trigger:e,containerAnimation:r,start:`left right`,end:`right left`,scrub:!0}})})}})}function xc(){let e=document.createElement(`section`);return e.className=`editorial-spread`,e.id=`editorial-spread`,e.innerHTML=`
+    <!-- Typographic Monument (Replaces Marquee) -->
+    <div class="typo-monument scroll-reveal">
+        <div class="typo-monument__grid">
+            <div class="typo-monument__cell typo-monument__cell--1">
+                <span class="typo-monument__text">ISA</span>
+            </div>
+            <div class="typo-monument__cell typo-monument__cell--2">
+                <span class="typo-monument__text">ARCHI</span>
+            </div>
+            <div class="typo-monument__cell typo-monument__cell--3">
+                <span class="typo-monument__text">TECTURE</span>
+            </div>
+            <div class="typo-monument__cell typo-monument__cell--4">
+                <span class="typo-monument__text">& DESIGN</span>
+            </div>
+            <div class="typo-monument__cell typo-monument__cell--meta">
+                <span class="typo-monument__meta-text">EST. 2010 // VOL. 1</span>
+            </div>
+        </div>
     </div>
-    <div class="image-break__overlay"></div>
-    <div class="image-break__caption">
-      <div class="image-break__caption-glass"></div>
-      <span class="image-break__caption-text">Архитектура, которая вдохновляет</span>
+
+    <!-- Editorial Plate (Replaces Image Break) -->
+    <div class="editorial-plate">
+        <div class="editorial-plate__inner">
+            <!-- Left Column: Dense Editor's Note -->
+            <div class="editorial-plate__text-col scroll-reveal">
+                <span class="editorial-plate__label">EDITOR'S NOTE // 01</span>
+                <p class="editorial-plate__paragraph">
+                    Мы верим в архитектуру, которая преодолевает временные рамки. Наши проекты создаются не для того, чтобы соответствовать трендам одного сезона, а для того, чтобы стоять десятилетиями. Строгая геометрия, чистые пропорции и абсолютный контроль над пространством — это наш словарь. Мы берем тяжелый камень, фактурную глину и холодный металл, превращая их в монолитные произведения искусства. Баланс между природной монументальностью и человеческим масштабом.
+                </p>
+                <div class="editorial-plate__data-grid">
+                    <div class="data-item"><span>PROJECTS</span> <strong>120+</strong></div>
+                    <div class="data-item"><span>AWARDS</span> <strong>15</strong></div>
+                    <div class="data-item"><span>MEMBER</span> <strong>SRA ROSSIA</strong></div>
+                </div>
+            </div>
+
+            <!-- Right Column: Towering Editorial Photograph -->
+            <div class="editorial-plate__photo-col">
+                <div class="editorial-plate__photo-wrap scroll-reveal">
+                    <img src="${ac}" alt="ISA Architecture Monument" class="editorial-plate__img" loading="lazy" />
+                    <!-- Floating Frosted Glass Caption -->
+                    <div class="editorial-plate__glass-caption">
+                        <span class="glass-caption__title">VILLA SOCHI (FRAG.)</span>
+                        <span class="glass-caption__meta">PH: A. STEPANOV // 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   `,e}hi.registerPlugin($);function Sc(){let e=document.createElement(`section`);return e.className=`manifesto-section`,e.id=`manifesto`,e.innerHTML=`
     <div class="manifesto-container">
@@ -360,8 +402,4 @@
         </div>
       </div>
     </div>
-  `,e}function Rc(){let e=document.getElementById(`contactForm`);e&&e.addEventListener(`submit`,t=>{t.preventDefault();let n=e.querySelector(`.footer__submit`);n.innerHTML=`<span>✓ Заявка отправлена</span>`,n.style.pointerEvents=`none`,n.classList.add(`footer__submit--sent`),setTimeout(()=>{n.innerHTML=`<span>Отправить заявку</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`,n.style.pointerEvents=``,n.classList.remove(`footer__submit--sent`),e.reset()},3e3)});let t=document.querySelector(`.footer__visual-img`);t&&hi.fromTo(t,{yPercent:-15,scale:1.1},{yPercent:15,scale:1.05,ease:`none`,scrollTrigger:{trigger:`.footer__split-visual`,start:`top bottom`,end:`bottom top`,scrub:!0}})}function zc(){let e=document.createElement(`div`);e.className=`marquee`;let t=[`150+ Проектов`,`12 Лет опыта`,`25 Лет гарантии`,`98% Довольных клиентов`,`Грозный — Москва — Сочи`,`Архитектура & Дизайн`,`Собственное производство`].map(e=>`<span class="marquee__item">${e}</span><span class="marquee__sep">—</span>`).join(``);return e.innerHTML=`
-    <div class="marquee__track">
-      ${t}${t}
-    </div>
-  `,e}hi.registerPlugin($);function Bc(){if(window.matchMedia(`(pointer: coarse)`).matches)return;let e=document.createElement(`div`),t=document.createElement(`div`);e.className=`cursor-dot`,t.className=`cursor-ring`,t.innerHTML=`<span>Drag</span>`,document.body.appendChild(e),document.body.appendChild(t),window.addEventListener(`mousemove`,n=>{hi.to(e,{x:n.clientX,y:n.clientY,duration:.1,overwrite:`auto`}),hi.to(t,{x:n.clientX,y:n.clientY,duration:.3,ease:`power2.out`,overwrite:`auto`})}),setTimeout(()=>{document.querySelectorAll(`a, button, .portfolio__pin, .hover-target, .story-card`).forEach(n=>{n.addEventListener(`mouseenter`,()=>{t.classList.add(`hovering`),e.classList.add(`hovering`),t.innerHTML=``}),n.addEventListener(`mouseleave`,()=>{t.classList.remove(`hovering`),e.classList.remove(`hovering`)})})},100)}function Vc(){let e=new $s({duration:1.5,easing:e=>Math.min(1,1.001-2**(-10*e)),direction:`vertical`,gestureDirection:`vertical`,smooth:!0,mouseMultiplier:1,smoothTouch:!1,touchMultiplier:2,infinite:!1});e.on(`scroll`,$.update),hi.ticker.add(t=>{e.raf(t*1e3)}),hi.ticker.lagSmoothing(0)}async function Hc(){let e=document.getElementById(`app`);if(!e)return;e.innerHTML=``;let t=document.createElement(`div`);t.className=`film-grain`,document.body.appendChild(t);let n=document.createElement(`div`);n.className=`ambient-light`,document.body.appendChild(n),document.body.appendChild(ec()),document.body.appendChild(gc()),e.appendChild(rc()),e.appendChild(yc()),e.appendChild(zc()),e.appendChild(xc()),e.appendChild(Sc()),e.appendChild(Tc()),e.appendChild(jc()),e.appendChild(Nc()),e.appendChild(Pc()),e.appendChild(Lc()),Vc(),Bc(),requestAnimationFrame(()=>{vc(),Cc(),Fc(),Mc(),Rc(),Oc(),window.addEventListener(`appLoaded`,()=>{ic(),bc(),Dc(),$.refresh()}),kc(),tc()})}document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,Hc):Hc();
+  `,e}function Rc(){let e=document.getElementById(`contactForm`);e&&e.addEventListener(`submit`,t=>{t.preventDefault();let n=e.querySelector(`.footer__submit`);n.innerHTML=`<span>✓ Заявка отправлена</span>`,n.style.pointerEvents=`none`,n.classList.add(`footer__submit--sent`),setTimeout(()=>{n.innerHTML=`<span>Отправить заявку</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`,n.style.pointerEvents=``,n.classList.remove(`footer__submit--sent`),e.reset()},3e3)});let t=document.querySelector(`.footer__visual-img`);t&&hi.fromTo(t,{yPercent:-15,scale:1.1},{yPercent:15,scale:1.05,ease:`none`,scrollTrigger:{trigger:`.footer__split-visual`,start:`top bottom`,end:`bottom top`,scrub:!0}})}hi.registerPlugin($);function zc(){if(window.matchMedia(`(pointer: coarse)`).matches)return;let e=document.createElement(`div`),t=document.createElement(`div`);e.className=`cursor-dot`,t.className=`cursor-ring`,t.innerHTML=`<span>Drag</span>`,document.body.appendChild(e),document.body.appendChild(t),window.addEventListener(`mousemove`,n=>{hi.to(e,{x:n.clientX,y:n.clientY,duration:.1,overwrite:`auto`}),hi.to(t,{x:n.clientX,y:n.clientY,duration:.3,ease:`power2.out`,overwrite:`auto`})}),setTimeout(()=>{document.querySelectorAll(`a, button, .portfolio__pin, .hover-target, .story-card`).forEach(n=>{n.addEventListener(`mouseenter`,()=>{t.classList.add(`hovering`),e.classList.add(`hovering`),t.innerHTML=``}),n.addEventListener(`mouseleave`,()=>{t.classList.remove(`hovering`),e.classList.remove(`hovering`)})})},100)}function Bc(){let e=new $s({duration:1.5,easing:e=>Math.min(1,1.001-2**(-10*e)),direction:`vertical`,gestureDirection:`vertical`,smooth:!0,mouseMultiplier:1,smoothTouch:!1,touchMultiplier:2,infinite:!1});e.on(`scroll`,$.update),hi.ticker.add(t=>{e.raf(t*1e3)}),hi.ticker.lagSmoothing(0)}async function Vc(){let e=document.getElementById(`app`);if(!e)return;e.innerHTML=``;let t=document.createElement(`div`);t.className=`film-grain`,document.body.appendChild(t);let n=document.createElement(`div`);n.className=`ambient-light`,document.body.appendChild(n),document.body.appendChild(ec()),document.body.appendChild(gc()),e.appendChild(rc()),e.appendChild(yc()),e.appendChild(xc()),e.appendChild(Sc()),e.appendChild(Tc()),e.appendChild(jc()),e.appendChild(Nc()),e.appendChild(Pc()),e.appendChild(Lc()),Bc(),zc(),requestAnimationFrame(()=>{vc(),Cc(),Fc(),Mc(),Rc(),Oc(),window.addEventListener(`appLoaded`,()=>{ic(),bc(),Dc(),$.refresh()}),kc(),tc()})}document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,Vc):Vc();
