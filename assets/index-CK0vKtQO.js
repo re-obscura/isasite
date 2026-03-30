@@ -6,12 +6,12 @@
       </div>
     </div>
     <div class="preloader__overlay"></div>
-  `,e}function tc(){let e=document.getElementById(`preloader`),t=document.getElementById(`preloaderProgress`);if(document.querySelector(`.preloader__overlay`),!e||!t)return;document.body.classList.add(`no-scroll`);let n=hi.timeline({onComplete:()=>{document.body.classList.remove(`no-scroll`),e.remove(),window.dispatchEvent(new Event(`appLoaded`))}}),r={value:0};n.to(r,{value:100,duration:2.5,ease:`power2.inOut`,onUpdate:()=>{t.textContent=Math.round(r.value)}}).to(`.preloader__container`,{y:-50,opacity:0,duration:1,ease:`power3.inOut`}).to(e,{yPercent:-100,duration:1.2,ease:`expo.inOut`},`-=0.5`)}var nc=`/isasite/assets/hero-bg-DcBW_atb.png`;function rc(){let e=document.createElement(`section`);return e.className=`cover`,e.id=`hero`,e.innerHTML=`
+  `,e}function tc(){let e=document.getElementById(`preloader`),t=document.getElementById(`preloaderProgress`);if(document.querySelector(`.preloader__overlay`),!e||!t)return;document.body.classList.add(`no-scroll`);let n=hi.timeline({onComplete:()=>{document.body.classList.remove(`no-scroll`),e.remove(),window.dispatchEvent(new Event(`appLoaded`))}}),r={value:0};n.to(r,{value:100,duration:2.5,ease:`power2.inOut`,onUpdate:()=>{t.textContent=Math.round(r.value)}}).to(`.preloader__container`,{y:-50,opacity:0,duration:1,ease:`power3.inOut`}).to(e,{yPercent:-100,duration:1.2,ease:`expo.inOut`},`-=0.5`)}var nc=`/isasite/assets/hero-bg-DcBW_atb.png`,rc=`/isasite/%D0%98%D1%81%D0%B0_%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9.svg`;function ic(){let e=document.createElement(`section`);return e.className=`cover`,e.id=`hero`,e.innerHTML=`
     <div class="cover__grid">
       <!-- Left Column: Typography -->
       <div class="cover__text-col">
         <div class="cover__folio">
-          <span>ISA АРХИТЕКТУРНОЕ БЮРО</span>
+          <img src="${rc}" alt="ISA" style="height: 16px; opacity: 0.9;" />
           <span>ТОМ ПЕРВЫЙ</span>
         </div>
 
@@ -39,17 +39,17 @@
         </div>
       </div>
     </div>
-  `,e}function ic(){hi.timeline({defaults:{ease:`expo.out`}}).fromTo(`.cover__img-wrap`,{clipPath:`inset(100% 0 0 0)`},{clipPath:`inset(0% 0 0 0)`,duration:1.5,ease:`power3.inOut`}).fromTo(`.cover__img`,{scale:1.2},{scale:1,duration:2,ease:`power2.out`},`-=1.5`).fromTo(`.cover__folio`,{opacity:0,y:-20},{opacity:1,y:0,duration:1},`-=1.2`).fromTo(`#heroT1`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=1`).fromTo(`#heroT2`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=0.9`).fromTo(`.cover__barcodes`,{opacity:0},{opacity:1,duration:1},`-=0.5`),hi.to(`.cover__img`,{scrollTrigger:{trigger:`.cover`,start:`top top`,end:`bottom top`,scrub:!0},yPercent:15,ease:`none`})}var ac=`/isasite/assets/portfolio-arch-WPAjTr2s.png`,oc=`/isasite/assets/portfolio-design-DkQb1749.png`,sc=`/isasite/assets/portfolio-landscape-DUKQTMdj.png`,cc=`/isasite/assets/portfolio-gates-DKivyY0b.png`,lc=`/isasite/assets/team-photo-BrvMFNTk.png`,uc=[{id:`architecture`,name:`Villa «Sochi»`,category:`Архитектура`,image:ac,title:`Архитектурный массив`,description:`Проектирование объектов капитального строительства. Монументальные виллы и резиденции. Чистая геометрия, диктующая правила гравитации. Полный цикл от эскиза до монолита.`,cta:`В АРХИВ`},{id:`design`,name:`Penthouse «Moscow»`,category:`Дизайн`,image:oc,title:`Внутренняя архитектура`,description:`Проектирование объема изнутри. Тактильность премиальных материалов. Интерьеры, где каждый соединительный узел проработан с абсолютной инженерной точностью.`,cta:`В АРХИВ`},{id:`landscape`,name:`Парк «Patriot»`,category:`Благоустройство`,image:sc,title:`Инженерный ландшафт`,description:`Формирование внешнего радиуса. Интеграция грубого бетона, кортеновской стали и реликтовых растений. Подчинение природного хаоса строгой, читаемой сетке.`,cta:`В АРХИВ`},{id:`gates`,name:`Metal Gate`,category:`Ворота`,image:cc,title:`Тяжелая металлургия`,description:`Собственное цеховое производство. Кастомные въездные группы из высоколегированной стали. Ручная ковка, возведенная в абсолют ради доминирующей физической эстетики.`,cta:`В АРХИВ`}],dc=[{id:1,name:`Резиденция «Эльбрус»`,category:`architecture`,image:ac,size:`tall`},{id:2,name:`Пентхаус «Москва-Сити»`,category:`design`,image:oc,size:`normal`},{id:3,name:`Кованые ворота «Крепость»`,category:`gates`,image:cc,size:`wide`},{id:4,name:`Парк «Патриот»`,category:`landscape`,image:sc,size:`normal`},{id:5,name:`Вилла «Сочи»`,category:`architecture`,image:nc,size:`normal`},{id:6,name:`Лофт «Грозный»`,category:`design`,image:oc,size:`tall`},{id:7,name:`Усадьба «Кавказ»`,category:`architecture`,image:ac,size:`normal`},{id:8,name:`Террасный сад «Мирный»`,category:`landscape`,image:sc,size:`wide`},{id:9,name:`Ворота «Империал»`,category:`gates`,image:cc,size:`tall`},{id:10,name:`Апартаменты «Высота»`,category:`design`,image:oc,size:`normal`}],fc={tag:`О компании`,title:`ФУНДАМЕНТАЛЬНАЯ
+  `,e}function ac(){hi.timeline({defaults:{ease:`expo.out`}}).fromTo(`.cover__img-wrap`,{clipPath:`inset(100% 0 0 0)`},{clipPath:`inset(0% 0 0 0)`,duration:1.5,ease:`power3.inOut`}).fromTo(`.cover__img`,{scale:1.2},{scale:1,duration:2,ease:`power2.out`},`-=1.5`).fromTo(`.cover__folio`,{opacity:0,y:-20},{opacity:1,y:0,duration:1},`-=1.2`).fromTo(`#heroT1`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=1`).fromTo(`#heroT2`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=0.9`).fromTo(`.cover__barcodes`,{opacity:0},{opacity:1,duration:1},`-=0.5`),hi.to(`.cover__img`,{scrollTrigger:{trigger:`.cover`,start:`top top`,end:`bottom top`,scrub:!0},yPercent:15,ease:`none`})}var oc=`/isasite/assets/portfolio-arch-WPAjTr2s.png`,sc=`/isasite/assets/portfolio-design-DkQb1749.png`,cc=`/isasite/assets/portfolio-landscape-DUKQTMdj.png`,lc=`/isasite/assets/portfolio-gates-DKivyY0b.png`,uc=`/isasite/assets/team-photo-BrvMFNTk.png`,dc=[{id:`architecture`,name:`Villa «Sochi»`,category:`Архитектура`,image:oc,title:`Архитектурный массив`,description:`Проектирование объектов капитального строительства. Монументальные виллы и резиденции. Чистая геометрия, диктующая правила гравитации. Полный цикл от эскиза до монолита.`,cta:`В АРХИВ`},{id:`design`,name:`Penthouse «Moscow»`,category:`Дизайн`,image:sc,title:`Внутренняя архитектура`,description:`Проектирование объема изнутри. Тактильность премиальных материалов. Интерьеры, где каждый соединительный узел проработан с абсолютной инженерной точностью.`,cta:`В АРХИВ`},{id:`landscape`,name:`Парк «Patriot»`,category:`Благоустройство`,image:cc,title:`Инженерный ландшафт`,description:`Формирование внешнего радиуса. Интеграция грубого бетона, кортеновской стали и реликтовых растений. Подчинение природного хаоса строгой, читаемой сетке.`,cta:`В АРХИВ`},{id:`gates`,name:`Metal Gate`,category:`Ворота`,image:lc,title:`Тяжелая металлургия`,description:`Собственное цеховое производство. Кастомные въездные группы из высоколегированной стали. Ручная ковка, возведенная в абсолют ради доминирующей физической эстетики.`,cta:`В АРХИВ`}],fc=[{id:1,name:`Резиденция «Эльбрус»`,category:`architecture`,image:oc,size:`tall`},{id:2,name:`Пентхаус «Москва-Сити»`,category:`design`,image:sc,size:`normal`},{id:3,name:`Кованые ворота «Крепость»`,category:`gates`,image:lc,size:`wide`},{id:4,name:`Парк «Патриот»`,category:`landscape`,image:cc,size:`normal`},{id:5,name:`Вилла «Сочи»`,category:`architecture`,image:nc,size:`normal`},{id:6,name:`Лофт «Грозный»`,category:`design`,image:sc,size:`tall`},{id:7,name:`Усадьба «Кавказ»`,category:`architecture`,image:oc,size:`normal`},{id:8,name:`Террасный сад «Мирный»`,category:`landscape`,image:cc,size:`wide`},{id:9,name:`Ворота «Империал»`,category:`gates`,image:lc,size:`tall`},{id:10,name:`Апартаменты «Высота»`,category:`design`,image:sc,size:`normal`}],pc={tag:`О компании`,title:`ФУНДАМЕНТАЛЬНАЯ
 АРХИТЕКТУРА
-ВНЕ ВРЕМЕНИ.`,texts:[`Архитектура ISA — это выверенный баланс бетона, металла и натурального камня. Мы создаем премиальные объекты капитального строительства, которые становятся физическим наследием, способным выдержать испытание временем.`,`Тотальный контроль цикла. От математического расчета несущих конструкций до финишной отделки. Никаких компромиссов. Только точная инженерная логика и ультимативное качество.`],image:lc,values:[{number:`150+`,label:`ПРОЕКТОВ`},{number:`12`,label:`ЛЕТ ОПЫТА`},{number:`100%`,label:`КАЧЕСТВО`},{number:`25`,label:`ЛЕТ ГАРАНТИИ`}]},pc={ctaTag:`Начать проект`,ctaTitle:`ОБСУДИМ ВАШ
-ПРОЕКТ?`,contacts:[{label:`ТЕЛЕФОН`,value:`+7 (928) 000-00-00`},{label:`EMAIL`,value:`INFO@ISA-DESIGN.RU`},{label:`АДРЕС`,value:`Г. ГРОЗНЫЙ, ПР. ПУТИНА, 1`}],socials:[`telegram`,`whatsapp`,`instagram`],copyright:`© 2026 ISA ARCHITECTURE. ВСЕ ПРАВА ЗАЩИЩЕНЫ.`},mc=[{label:`Главная`,href:`#hero`},{label:`Направления`,href:`#stories`},{label:`Портфолио`,href:`#portfolio`},{label:`О нас`,href:`#philosophy`},{label:`Контакты`,href:`#footer`}],hc=`/isasite/%D0%98%D1%81%D0%B0_%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9.svg`;function gc(){let e=document.createElement(`nav`);return e.className=`nav-bar`,e.id=`navBar`,e.innerHTML=`
+ВНЕ ВРЕМЕНИ.`,texts:[`Архитектура ISA — это выверенный баланс бетона, металла и натурального камня. Мы создаем премиальные объекты капитального строительства, которые становятся физическим наследием, способным выдержать испытание временем.`,`Тотальный контроль цикла. От математического расчета несущих конструкций до финишной отделки. Никаких компромиссов. Только точная инженерная логика и ультимативное качество.`],image:uc,values:[{number:`150+`,label:`ПРОЕКТОВ`},{number:`12`,label:`ЛЕТ ОПЫТА`},{number:`100%`,label:`КАЧЕСТВО`},{number:`25`,label:`ЛЕТ ГАРАНТИИ`}]},mc={ctaTag:`Начать проект`,ctaTitle:`ОБСУДИМ ВАШ
+ПРОЕКТ?`,contacts:[{label:`ТЕЛЕФОН`,value:`+7 (928) 000-00-00`},{label:`EMAIL`,value:`INFO@ISA-DESIGN.RU`},{label:`АДРЕС`,value:`Г. ГРОЗНЫЙ, ПР. ПУТИНА, 1`}],socials:[`telegram`,`whatsapp`,`instagram`],copyright:`© 2026 ISA ARCHITECTURE. ВСЕ ПРАВА ЗАЩИЩЕНЫ.`},hc=[{label:`Главная`,href:`#hero`},{label:`Направления`,href:`#stories`},{label:`Портфолио`,href:`#portfolio`},{label:`О нас`,href:`#philosophy`},{label:`Контакты`,href:`#footer`}];function gc(){let e=document.createElement(`nav`);return e.className=`nav-bar`,e.id=`navBar`,e.innerHTML=`
     <div class="nav-bar__inner">
       <div class="nav-bar__logo">
-        <img src="${hc}" alt="ISA" class="nav-bar__logo-img" />
+        <img src="${rc}" alt="ISA" class="nav-bar__logo-img" />
       </div>
       <div class="nav-bar__line"></div>
       <div class="nav-bar__links">
-        ${mc.map(e=>`<a href="${e.href}" class="nav-bar__link">${e.label}</a>`).join(`<span class="nav-bar__dot"></span>`)}
+        ${hc.map(e=>`<a href="${e.href}" class="nav-bar__link">${e.label}</a>`).join(`<span class="nav-bar__dot"></span>`)}
       </div>
       <div class="nav-bar__line"></div>
       <a href="#footer" class="nav-bar__cta">Начать проект</a>
@@ -58,7 +58,7 @@
       </button>
     </div>
     <div class="nav-bar__mobile-menu">
-      ${mc.map(e=>`<a href="${e.href}" class="nav-bar__mobile-link">${e.label}</a>`).join(``)}
+      ${hc.map(e=>`<a href="${e.href}" class="nav-bar__mobile-link">${e.label}</a>`).join(``)}
       <a href="#footer" class="nav-bar__mobile-link nav-bar__mobile-link--cta">Начать проект</a>
     </div>
   `,e}function _c(){let e=document.querySelector(`.nav-bar__burger`),t=document.querySelector(`.nav-bar__mobile-menu`);e&&e.classList.remove(`active`),t&&t.classList.remove(`open`),document.body.classList.remove(`menu-open`)}function vc(){let e=document.getElementById(`navBar`);if(!e)return;let t=e.querySelector(`.nav-bar__burger`),n=e.querySelector(`.nav-bar__mobile-menu`),r=e.querySelector(`.nav-bar__mobile-close`);t&&n&&t.addEventListener(`click`,()=>{n.classList.contains(`open`)?_c():(t.classList.add(`active`),n.classList.add(`open`),document.body.classList.add(`menu-open`))}),r&&r.addEventListener(`click`,_c),e.querySelectorAll(`.nav-bar__mobile-link`).forEach(e=>{e.addEventListener(`click`,_c)}),e.querySelectorAll(`.nav-bar__link, .nav-bar__cta, .nav-bar__mobile-link`).forEach(e=>{e.addEventListener(`click`,t=>{t.preventDefault();let n=document.querySelector(e.getAttribute(`href`));n&&n.scrollIntoView({behavior:`smooth`})})});let i=!1;window.addEventListener(`scroll`,()=>{i||=(requestAnimationFrame(()=>{window.scrollY>80?e.classList.add(`nav-bar--scrolled`):e.classList.remove(`nav-bar--scrolled`),i=!1}),!0)})}function yc(){let e=document.createElement(`section`);return e.className=`stories-section`,e.id=`stories`,e.innerHTML=`
@@ -67,7 +67,7 @@
         <h2 class="stories-heading heading-primary">Экспертиза</h2>
       </div>
       <div class="stories-track">
-        ${uc.map((e,t)=>`
+        ${dc.map((e,t)=>`
     <div class="story-card" data-index="${t}">
       <div class="story-card__img-wrapper">
         <img src="${e.image}" alt="${e.category}" loading="lazy" class="story-card__img"/>
@@ -83,7 +83,7 @@
   `,e}function bc(){let e=document.querySelector(`.stories-track`),t=hi.utils.toArray(`.story-card`);e&&t.length>0&&$.matchMedia({"(min-width: 901px)":function(){let n=e.scrollWidth-window.innerWidth,r=hi.to(e,{x:-n,ease:`none`,id:`horizontal-scroll`,scrollTrigger:{trigger:`.stories-section`,pin:!0,scrub:1,end:()=>`+=`+e.scrollWidth}});t.forEach(e=>{let t=e.querySelector(`.story-card__img`);hi.fromTo(t,{xPercent:-10},{xPercent:10,ease:`none`,scrollTrigger:{trigger:e,containerAnimation:r,start:`left right`,end:`right left`,scrub:!0}})})}})}function xc(){let e=document.createElement(`section`);return e.className=`editorial-spread`,e.id=`editorial-spread`,e.innerHTML=`
     <!-- Graphic Monument (Logo) -->
     <div class="typo-monument scroll-reveal" style="display: flex; justify-content: center; align-items: center; padding: clamp(40px, 10vw, 120px) var(--side-padding); border-bottom: 1px solid var(--color-ink);">
-        <img src="${hc}" alt="ISA Logo" style="width: 100%; max-width: 800px; opacity: 0.9;" />
+        <img src="${rc}" alt="ISA Logo" style="width: 100%; max-width: 800px; opacity: 0.9;" />
     </div>
 
     <!-- Editorial Plate (Replaces Image Break) -->
@@ -105,7 +105,7 @@
             <!-- Right Column: Towering Editorial Photograph -->
             <div class="editorial-plate__photo-col">
                 <div class="editorial-plate__photo-wrap scroll-reveal">
-                    <img src="${ac}" alt="ISA Architecture Monument" class="editorial-plate__img" loading="lazy" />
+                    <img src="${oc}" alt="ISA Architecture Monument" class="editorial-plate__img" loading="lazy" />
                     <!-- Floating Frosted Glass Caption -->
                     <div class="editorial-plate__glass-caption">
                         <span class="glass-caption__title">VILLA SOCHI (БЕТОН)</span>
@@ -194,7 +194,7 @@
         <a href="#" class="portfolio__view-all">Смотреть все</a>
       </div>
       <div class="portfolio__masonry">
-        ${dc.map((e,t)=>{let n=e.size||wc[t%wc.length],r=String(t+1).padStart(2,`0`);return`
+        ${fc.map((e,t)=>{let n=e.size||wc[t%wc.length],r=String(t+1).padStart(2,`0`);return`
       <div class="portfolio__pin hover-target" data-size="${n}" data-category="${e.category}">
         <div class="portfolio__pin-img-wrap">
           <img src="${e.image}" alt="${e.name}" loading="lazy" class="portfolio__pin-img" />
@@ -241,7 +241,7 @@
   `).join(``)}
       </div>
     </div>
-  `,e}function Mc(){document.querySelectorAll(`.process-step`).forEach((e,t)=>{let n=e.querySelector(`.process-step__number-bg`),r=e.querySelector(`.process-step__dot`),i=e.querySelector(`.process-step__connector`),a=e.querySelector(`.process-step__body`),o=e.querySelector(`.process-step__rule`),s=e.querySelector(`.process-step__accent`),c=hi.timeline({scrollTrigger:{trigger:e,start:`top 85%`,toggleActions:`play none none none`}});c.fromTo(n,{opacity:0,scale:.85,yPercent:15},{opacity:1,scale:1,yPercent:0,duration:1,ease:`power3.out`}).fromTo(r,{scale:0,opacity:0},{scale:1,opacity:1,duration:.4,ease:`back.out(2)`},`-=0.7`).fromTo(a,{opacity:0,y:35},{opacity:1,y:0,duration:.8,ease:`power3.out`},`-=0.5`).fromTo(o,{scaleX:0},{scaleX:1,duration:.6,ease:`power2.out`},`-=0.5`).fromTo(s,{scaleX:0},{scaleX:1,duration:.5,ease:`power2.out`},`-=0.3`),i&&c.fromTo(i,{scaleX:0},{scaleX:1,duration:.8,ease:`power2.out`},`-=0.8`),hi.to(n,{yPercent:-15,ease:`none`,scrollTrigger:{trigger:e,start:`top bottom`,end:`bottom top`,scrub:1}})})}function Nc(){let e=document.createElement(`section`);e.className=`philosophy`,e.id=`philosophy`;let t=fc.values.map((e,t)=>`
+  `,e}function Mc(){document.querySelectorAll(`.process-step`).forEach((e,t)=>{let n=e.querySelector(`.process-step__number-bg`),r=e.querySelector(`.process-step__dot`),i=e.querySelector(`.process-step__connector`),a=e.querySelector(`.process-step__body`),o=e.querySelector(`.process-step__rule`),s=e.querySelector(`.process-step__accent`),c=hi.timeline({scrollTrigger:{trigger:e,start:`top 85%`,toggleActions:`play none none none`}});c.fromTo(n,{opacity:0,scale:.85,yPercent:15},{opacity:1,scale:1,yPercent:0,duration:1,ease:`power3.out`}).fromTo(r,{scale:0,opacity:0},{scale:1,opacity:1,duration:.4,ease:`back.out(2)`},`-=0.7`).fromTo(a,{opacity:0,y:35},{opacity:1,y:0,duration:.8,ease:`power3.out`},`-=0.5`).fromTo(o,{scaleX:0},{scaleX:1,duration:.6,ease:`power2.out`},`-=0.5`).fromTo(s,{scaleX:0},{scaleX:1,duration:.5,ease:`power2.out`},`-=0.3`),i&&c.fromTo(i,{scaleX:0},{scaleX:1,duration:.8,ease:`power2.out`},`-=0.8`),hi.to(n,{yPercent:-15,ease:`none`,scrollTrigger:{trigger:e,start:`top bottom`,end:`bottom top`,scrub:1}})})}function Nc(){let e=document.createElement(`section`);e.className=`philosophy`,e.id=`philosophy`;let t=pc.values.map((e,t)=>`
     <div class="philosophy__stat scroll-reveal" data-delay="${t+1}">
       <div class="philosophy__stat-number">${e.number}</div>
       <div class="philosophy__stat-label">${e.label}</div>
@@ -265,7 +265,7 @@
       <div class="philosophy__body-inner">
         <div class="philosophy__image-col scroll-reveal scroll-reveal--left">
           <div class="philosophy__image-frame">
-            <img src="${fc.image}" alt="Команда ISA" loading="lazy" />
+            <img src="${pc.image}" alt="Команда ISA" loading="lazy" />
           </div>
         </div>
 
@@ -340,7 +340,7 @@
         <!-- Col 1: Contacts -->
         <div class="monolith-col scroll-reveal" data-delay="1">
           <div class="monolith-contacts">
-            ${pc.contacts.map(e=>`
+            ${mc.contacts.map(e=>`
     <div class="monolith-contact">
       <span class="monolith-contact__label">${e.label}</span>
       <span class="monolith-contact__value">${e.value}</span>
@@ -385,7 +385,7 @@
       </div>
 
       <div class="monolith-footer__bottom">
-        <span class="monolith-copyright carved-text-sm">${pc.copyright}</span>
+        <span class="monolith-copyright carved-text-sm">${mc.copyright}</span>
         <div class="monolith-socials">
           <a href="#" class="monolith-social carved-text-sm">TG</a>
           <a href="#" class="monolith-social carved-text-sm">WA</a>
@@ -393,4 +393,4 @@
         </div>
       </div>
     </div>
-  `,e}function Lc(){let e=document.getElementById(`contactForm`);e&&e.addEventListener(`submit`,t=>{t.preventDefault();let n=e.querySelector(`.monolith-submit`);n.innerHTML=`ПРИНЯТО`,n.style.pointerEvents=`none`,setTimeout(()=>{n.innerHTML=`ИНИЦИИРОВАТЬ ПРОЕКТ`,n.style.pointerEvents=``,e.reset()},3e3)})}hi.registerPlugin($);function Rc(){if(window.matchMedia(`(pointer: coarse)`).matches)return;let e=document.createElement(`div`),t=document.createElement(`div`);e.className=`cursor-dot`,t.className=`cursor-ring`,t.innerHTML=`<span>Drag</span>`,document.body.appendChild(e),document.body.appendChild(t),window.addEventListener(`mousemove`,n=>{hi.to(e,{x:n.clientX,y:n.clientY,duration:.1,overwrite:`auto`}),hi.to(t,{x:n.clientX,y:n.clientY,duration:.3,ease:`power2.out`,overwrite:`auto`})}),setTimeout(()=>{document.querySelectorAll(`a, button, .portfolio__pin, .hover-target, .story-card`).forEach(n=>{n.addEventListener(`mouseenter`,()=>{t.classList.add(`hovering`),e.classList.add(`hovering`),t.innerHTML=``}),n.addEventListener(`mouseleave`,()=>{t.classList.remove(`hovering`),e.classList.remove(`hovering`)})})},100)}function zc(){let e=new $s({duration:1.5,easing:e=>Math.min(1,1.001-2**(-10*e)),direction:`vertical`,gestureDirection:`vertical`,smooth:!0,mouseMultiplier:1,smoothTouch:!1,touchMultiplier:2,infinite:!1});e.on(`scroll`,$.update),hi.ticker.add(t=>{e.raf(t*1e3)}),hi.ticker.lagSmoothing(0)}async function Bc(){let e=document.getElementById(`app`);if(!e)return;e.innerHTML=``;let t=document.createElement(`div`);t.className=`film-grain`,document.body.appendChild(t);let n=document.createElement(`div`);n.className=`ambient-light`,document.body.appendChild(n),document.body.appendChild(ec()),document.body.appendChild(gc()),e.appendChild(rc()),e.appendChild(yc()),e.appendChild(xc()),e.appendChild(Sc()),e.appendChild(Tc()),e.appendChild(jc()),e.appendChild(Nc()),e.appendChild(Pc()),e.appendChild(Ic()),zc(),Rc(),requestAnimationFrame(()=>{vc(),Cc(),Fc(),Mc(),Lc(),Oc(),window.addEventListener(`appLoaded`,()=>{ic(),bc(),Dc(),$.refresh()}),kc(),tc()})}document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,Bc):Bc();
+  `,e}function Lc(){let e=document.getElementById(`contactForm`);e&&e.addEventListener(`submit`,t=>{t.preventDefault();let n=e.querySelector(`.monolith-submit`);n.innerHTML=`ПРИНЯТО`,n.style.pointerEvents=`none`,setTimeout(()=>{n.innerHTML=`ИНИЦИИРОВАТЬ ПРОЕКТ`,n.style.pointerEvents=``,e.reset()},3e3)})}hi.registerPlugin($);function Rc(){if(window.matchMedia(`(pointer: coarse)`).matches)return;let e=document.createElement(`div`),t=document.createElement(`div`);e.className=`cursor-dot`,t.className=`cursor-ring`,t.innerHTML=`<span>Drag</span>`,document.body.appendChild(e),document.body.appendChild(t),window.addEventListener(`mousemove`,n=>{hi.to(e,{x:n.clientX,y:n.clientY,duration:.1,overwrite:`auto`}),hi.to(t,{x:n.clientX,y:n.clientY,duration:.3,ease:`power2.out`,overwrite:`auto`})}),setTimeout(()=>{document.querySelectorAll(`a, button, .portfolio__pin, .hover-target, .story-card`).forEach(n=>{n.addEventListener(`mouseenter`,()=>{t.classList.add(`hovering`),e.classList.add(`hovering`),t.innerHTML=``}),n.addEventListener(`mouseleave`,()=>{t.classList.remove(`hovering`),e.classList.remove(`hovering`)})})},100)}function zc(){let e=new $s({duration:1.5,easing:e=>Math.min(1,1.001-2**(-10*e)),direction:`vertical`,gestureDirection:`vertical`,smooth:!0,mouseMultiplier:1,smoothTouch:!1,touchMultiplier:2,infinite:!1});e.on(`scroll`,$.update),hi.ticker.add(t=>{e.raf(t*1e3)}),hi.ticker.lagSmoothing(0)}async function Bc(){let e=document.getElementById(`app`);if(!e)return;e.innerHTML=``;let t=document.createElement(`div`);t.className=`film-grain`,document.body.appendChild(t);let n=document.createElement(`div`);n.className=`ambient-light`,document.body.appendChild(n),document.body.appendChild(ec()),document.body.appendChild(gc()),e.appendChild(ic()),e.appendChild(yc()),e.appendChild(xc()),e.appendChild(Sc()),e.appendChild(Tc()),e.appendChild(jc()),e.appendChild(Nc()),e.appendChild(Pc()),e.appendChild(Ic()),zc(),Rc(),requestAnimationFrame(()=>{vc(),Cc(),Fc(),Mc(),Lc(),Oc(),window.addEventListener(`appLoaded`,()=>{ac(),bc(),Dc(),$.refresh()}),kc(),tc()})}document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,Bc):Bc();
