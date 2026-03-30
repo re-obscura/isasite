@@ -10,8 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: clamp(60px, 8vw, 120px) var(--side-padding);
-    border-bottom: 1px solid var(--color-ink);
+    padding: clamp(60px, 8vw, 120px) var(--side-padding) clamp(40px, 5vw, 80px);
   `,t.innerHTML=`
     <img src="${rc}" alt="ISA Logo" class="hero-intro-img" style="width: 100%; max-width: 400px; filter: brightness(0) opacity(0.95);" />
   `;let n=document.createElement(`section`);return n.className=`cover`,n.id=`hero`,n.innerHTML=`
@@ -23,7 +22,7 @@
           <span>ТОМ ПЕРВЫЙ</span>
         </div>
 
-        <h1 class="cover__title" style="font-size: clamp(3rem, 7vw, 10rem);">
+        <h1 class="cover__title" style="font-size: clamp(2rem, 9vw, 10rem);">
           <span class="cover__title-word" id="heroT1">АВТОРСКАЯ</span><br>
           <span class="cover__title-word cover__title-word--indent" id="heroT2">АРХИТЕКТУРА</span>
         </h1>
