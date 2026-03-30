@@ -23,9 +23,9 @@
           <span>ТОМ ПЕРВЫЙ</span>
         </div>
 
-        <h1 class="cover__title">
-          <span class="cover__title-word" id="heroT1">ФУНДА</span><br>
-          <span class="cover__title-word cover__title-word--indent" id="heroT2">МЕНТ</span>
+        <h1 class="cover__title" style="font-size: clamp(3rem, 7vw, 10rem);">
+          <span class="cover__title-word" id="heroT1">АВТОРСКАЯ</span><br>
+          <span class="cover__title-word cover__title-word--indent" id="heroT2">АРХИТЕКТУРА</span>
         </h1>
 
         <div class="cover__barcodes">
