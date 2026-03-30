@@ -72,7 +72,7 @@ export const portfolioItems = [
         name: 'Резиденция «Эльбрус»',
         category: 'architecture',
         image: portfolioArch,
-        size: 'large'
+        size: 'tall'
     },
     {
         id: 2,
@@ -86,14 +86,14 @@ export const portfolioItems = [
         name: 'Кованые ворота «Крепость»',
         category: 'gates',
         image: portfolioGates,
-        size: 'normal'
+        size: 'wide'
     },
     {
         id: 4,
         name: 'Парк «Патриот»',
         category: 'landscape',
         image: portfolioLandscape,
-        size: 'wide'
+        size: 'normal'
     },
     {
         id: 5,
@@ -105,6 +105,34 @@ export const portfolioItems = [
     {
         id: 6,
         name: 'Лофт «Грозный»',
+        category: 'design',
+        image: portfolioDesign,
+        size: 'tall'
+    },
+    {
+        id: 7,
+        name: 'Усадьба «Кавказ»',
+        category: 'architecture',
+        image: portfolioArch,
+        size: 'normal'
+    },
+    {
+        id: 8,
+        name: 'Террасный сад «Мирный»',
+        category: 'landscape',
+        image: portfolioLandscape,
+        size: 'wide'
+    },
+    {
+        id: 9,
+        name: 'Ворота «Империал»',
+        category: 'gates',
+        image: portfolioGates,
+        size: 'tall'
+    },
+    {
+        id: 10,
+        name: 'Апартаменты «Высота»',
         category: 'design',
         image: portfolioDesign,
         size: 'normal'

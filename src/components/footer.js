@@ -1,8 +1,13 @@
 // ═══════════════════════════════════════════════════════
-// ISA — Footer Component
+// ISA — Footer Section (Premium Redesign)
 // ═══════════════════════════════════════════════════════
 
 import { footerData } from '../data/content.js';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import portfolioDesign from '../assets/portfolio-design.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const socialIcons = {
   telegram: `<svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>`,
@@ -29,30 +34,57 @@ export function createFooter() {
   `).join('');
 
   section.innerHTML = `
-    <canvas class="footer__particles" id="footerParticles"></canvas>
-    <div class="footer__container">
-      <div class="footer__cta-tag reveal">${footerData.ctaTag}</div>
-      <h2 class="footer__cta-title reveal">${footerData.ctaTitle.replace(/\n/g, '<br>')}</h2>
-      <form class="footer__form reveal" id="contactForm" onsubmit="return false;">
-        <div class="footer__row">
-          <input type="text" class="footer__input" placeholder="Ваше имя" required />
-          <input type="tel" class="footer__input" placeholder="Телефон" required />
+    <div class="footer__inner">
+
+      <div class="footer__split">
+        <!-- Left: Visual Column -->
+        <div class="footer__split-visual scroll-reveal">
+          <div class="footer__split-visual-inner">
+            <img src="${portfolioDesign}" alt="Обсудим проект" class="footer__visual-img" loading="lazy" />
+          </div>
+          <div class="footer__visual-overlay"></div>
         </div>
-        <textarea class="footer__textarea" placeholder="Расскажите о вашем проекте..." rows="4"></textarea>
-        <button type="submit" class="btn-accent" style="align-self: center;">
-          Отправить заявку
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </button>
-      </form>
-      <div class="footer__contacts reveal">
-        ${contactsHTML}
+
+        <!-- Right: Content Column -->
+        <div class="footer__split-content">
+          <div class="footer__cta scroll-reveal">
+            <div class="footer__cta-tag">
+              <span class="footer__cta-tag-line"></span>
+              <span class="footer__cta-tag-text">${footerData.ctaTag}</span>
+            </div>
+            <h2 class="footer__cta-title">${footerData.ctaTitle.replace(/\n/g, '<br>')}</h2>
+          </div>
+
+          <form class="footer__form scroll-reveal" id="contactForm" onsubmit="return false;" data-delay="1">
+            <div class="footer__form-grid">
+              <input type="text" class="footer__input" placeholder="Ваше имя" required />
+              <input type="tel" class="footer__input" placeholder="Телефон" required />
+            </div>
+            <textarea class="footer__textarea" placeholder="Расскажите о вашем проекте..." rows="4"></textarea>
+            <button type="submit" class="footer__submit hover-target">
+              <span>Отправить заявку</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </form>
+          
+          <div class="footer__contacts-mini scroll-reveal" data-delay="2">
+            ${contactsHTML}
+          </div>
+        </div>
       </div>
-      <div class="footer__social reveal">
-        ${socialsHTML}
+
+      <!-- Divider -->
+      <div class="footer__divider"></div>
+
+      <!-- Bottom: Socials + Copyright -->
+      <div class="footer__bottom">
+        <div class="footer__copyright">${footerData.copyright}</div>
+        <div class="footer__social">
+          ${socialsHTML}
+        </div>
       </div>
-      <div class="footer__copyright">${footerData.copyright}</div>
     </div>
   `;
 
@@ -64,94 +96,34 @@ export function initFooter() {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = form.querySelector('.btn-accent');
-      btn.textContent = '✓ Заявка отправлена';
+      const btn = form.querySelector('.footer__submit');
+      btn.innerHTML = '<span>✓ Заявка отправлена</span>';
       btn.style.pointerEvents = 'none';
+      btn.classList.add('footer__submit--sent');
       setTimeout(() => {
-        btn.innerHTML = `Отправить заявку <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+        btn.innerHTML = `<span>Отправить заявку</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
         btn.style.pointerEvents = '';
+        btn.classList.remove('footer__submit--sent');
         form.reset();
       }, 3000);
     });
   }
 
-  // ─── Flowing Wave Animation ────────────────────────
-  const canvas = document.getElementById('footerParticles');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  let w, h, time = 0;
-
-  function resize() {
-    w = canvas.width = canvas.parentElement.offsetWidth;
-    h = canvas.height = canvas.parentElement.offsetHeight;
-  }
-
-  function waveY(x, base, amp, freq, speed, phase) {
-    return base + Math.sin(x * freq + time * speed + phase) * amp
-      + Math.sin(x * freq * 1.7 + time * speed * 0.6 + phase * 0.5) * amp * 0.35;
-  }
-
-  function drawFilledWave(baseY, amp, freq, speed, phase, fillColor, fromEdge) {
-    ctx.beginPath();
-    if (fromEdge === 'top') {
-      ctx.moveTo(0, 0);
-      for (let x = 0; x <= w; x += 4) {
-        ctx.lineTo(x, waveY(x, baseY, amp, freq, speed, phase));
+  const visualImg = document.querySelector('.footer__visual-img');
+  if (visualImg) {
+    gsap.fromTo(visualImg,
+      { yPercent: -15, scale: 1.1 },
+      {
+        yPercent: 15,
+        scale: 1.05,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.footer__split-visual',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        }
       }
-      ctx.lineTo(w, 0);
-    } else {
-      ctx.moveTo(0, h);
-      for (let x = 0; x <= w; x += 4) {
-        ctx.lineTo(x, waveY(x, baseY, amp, freq, speed, phase));
-      }
-      ctx.lineTo(w, h);
-    }
-    ctx.closePath();
-    ctx.fillStyle = fillColor;
-    ctx.fill();
+    );
   }
-
-  function drawLine(baseY, amp, freq, speed, phase, color) {
-    ctx.beginPath();
-    for (let x = 0; x <= w; x += 3) {
-      const y = waveY(x, baseY, amp, freq, speed, phase);
-      if (x === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 0.7;
-    ctx.stroke();
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-    time += 0.008;
-
-    // ── Subtle filled blobs ──
-    drawFilledWave(h * 0.18, h * 0.05, 0.002, 0.15, 0,
-      'rgba(196, 169, 125, 0.03)', 'top');
-
-    drawFilledWave(h * 0.8, h * 0.06, 0.0018, -0.12, 1,
-      'rgba(196, 169, 125, 0.035)', 'bottom');
-
-    // ── Calm flowing lines ──
-    for (let i = 0; i < 3; i++) {
-      const opacity = 0.045 - i * 0.012;
-      drawLine(h * (0.28 + i * 0.025), h * 0.03, 0.003, 0.18, i * 0.9,
-        `rgba(196, 169, 125, ${opacity})`);
-    }
-
-    for (let i = 0; i < 3; i++) {
-      const opacity = 0.04 - i * 0.01;
-      drawLine(h * (0.65 + i * 0.025), h * 0.025, 0.0022, -0.15, i * 1.0 + 3,
-        `rgba(196, 169, 125, ${opacity})`);
-    }
-
-    requestAnimationFrame(draw);
-  }
-
-  resize();
-  window.addEventListener('resize', resize);
-  draw();
 }

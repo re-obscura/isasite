@@ -1,6 +1,10 @@
 // ═══════════════════════════════════════════════════════
-// ISA — Premium Architecture & Design — Main Entry
+// ISA — Premium Architecture & Design — Cinematic Redesign
 // ═══════════════════════════════════════════════════════
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
 
 // Styles
 import './styles/variables.css';
@@ -11,220 +15,149 @@ import './styles/ornaments.css';
 import './styles/dynamics.css';
 
 // Components
-import { createPreloader, hidePreloader } from './components/preloader.js';
+import { createPreloader, initPreloader } from './components/preloader.js';
 import { createHero, initHero } from './components/hero.js';
 import { createNavigation, initNavigation } from './components/navigation.js';
-import { createStories, createStoryPopup, initStories } from './components/stories.js';
+import { createStories, initStories } from './components/stories.js';
 import { createImageBreak } from './components/imagebreak.js';
-import { createManifesto } from './components/manifesto.js';
+import { createManifesto, initManifesto } from './components/manifesto.js';
 import { createPortfolio, initPortfolio } from './components/portfolio.js';
-import { createServices } from './components/services.js';
+import { initScrollAnimations, initCounters } from './components/animations.js';
+import { createServices, initServices } from './components/services.js';
 import { createPhilosophy } from './components/philosophy.js';
-import { createAwards } from './components/awards.js';
+import { createAwards, initAwards } from './components/awards.js';
 import { createFooter, initFooter } from './components/footer.js';
-import { initScrollAnimations, initParallax } from './components/animations.js';
-import { initHeroTextAnimation, initCounters, initImageReveals } from './components/dynamics.js';
+import { createMarquee } from './components/marquee.js';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// ─── Custom Global Cursor ────────────────────────────
+function initCustomCursor() {
+  // Only on pointer devices
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const dot = document.createElement('div');
+  const ring = document.createElement('div');
+  dot.className = 'cursor-dot';
+  ring.className = 'cursor-ring';
+  ring.innerHTML = '<span>Drag</span>';
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  window.addEventListener('mousemove', (e) => {
+    gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1, overwrite: 'auto' });
+    gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+  });
+
+  // Re-bind after DOM is ready since elements are created dynamically
+  setTimeout(() => {
+    const links = document.querySelectorAll('a, button, .portfolio__pin, .hover-target, .story-card');
+    links.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.classList.add('hovering');
+        dot.classList.add('hovering');
+        ring.innerHTML = '';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.classList.remove('hovering');
+        dot.classList.remove('hovering');
+      });
+    });
+  }, 100);
+}
+
+// ─── Cinematic Smooth Scroll (Lenis) ─────────────────
+function initLenis() {
+  const lenis = new Lenis({
+    duration: 1.5,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+}
 
 // ─── Initialize Application ──────────────────────────
-function init() {
+async function init() {
   const app = document.getElementById('app');
   if (!app) return;
 
   app.innerHTML = '';
 
-  // 1. Preloader
+  // Ambient Light and Film Grain
+  const grain = document.createElement('div');
+  grain.className = 'film-grain';
+  document.body.appendChild(grain);
+
+  const ambient = document.createElement('div');
+  ambient.className = 'ambient-light';
+  document.body.appendChild(ambient);
+
+  // Preloader
   document.body.appendChild(createPreloader());
 
-  // 2. Fixed Navigation Bar
+  // Fixed Navigation
   document.body.appendChild(createNavigation());
 
-  // 3. Hero Section
+  // Page Sections
   app.appendChild(createHero());
-
-  // 4. Stories Section
   app.appendChild(createStories());
-
-  // 5. Story Popup
-  document.body.appendChild(createStoryPopup());
-
-  // 6. Full-bleed cinematic image break
+  app.appendChild(createMarquee());
   app.appendChild(createImageBreak());
-
-  // 7. Editorial Manifesto Quote (with parallax bg)
   app.appendChild(createManifesto());
-
-  // 8. Portfolio Section
   app.appendChild(createPortfolio());
-
-  // 9. Services / Process
   app.appendChild(createServices());
-
-  // 10. Philosophy Section
   app.appendChild(createPhilosophy());
-
-  // 11. Awards & Recognition
   app.appendChild(createAwards());
-
-  // 12. Footer
   app.appendChild(createFooter());
 
-  // ─── Initialize All Interactions ────────────────────
+
+
+  // Initialize Global Systems
+  initLenis();
+  initCustomCursor();
+
+  // Initialize Component Logic
   requestAnimationFrame(() => {
-    initHero();
     initNavigation();
-    initStories();
-    initPortfolio();
+    initManifesto();
+    initAwards();
+    initServices();
     initFooter();
+
+    // Single IntersectionObserver for ALL scroll reveals
     initScrollAnimations();
-    initParallax();
 
-    // Premium effects
-    initHeroTextAnimation();
+    // GSAP-dependent component initializations
+    // Must wait for 'appLoaded' so images/fonts are fully rendered
+    window.addEventListener('appLoaded', () => {
+      initHero();
+      initStories();
+      initPortfolio();
+
+      // Refresh ScrollTrigger after everything is initialized
+      ScrollTrigger.refresh();
+    });
+
+    // Counters start when visible (via IntersectionObserver)
     initCounters();
-    initImageReveals();
-    initTitleReveals();
-    initRevealAnimations();
-    initParallaxElements();
-    initPortfolioHoverEffects();
-    initPhilosophyCounters();
 
-    // Hide preloader after everything is initialized
-    hidePreloader();
+    // Start Preloader Sequence (dispatches 'appLoaded' on completion)
+    initPreloader();
   });
 }
 
-// ─── Title Underline Reveals ──────────────────────────
-function initTitleReveals() {
-  const titles = document.querySelectorAll('.portfolio__title, .services__title, .awards__heading');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  titles.forEach(t => observer.observe(t));
-}
-
-// ─── Generic Reveal Animations ────────────────────────
-function initRevealAnimations() {
-  const reveals = document.querySelectorAll('.reveal, .reveal-left');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-  reveals.forEach(el => observer.observe(el));
-}
-
-// ─── Scroll-Driven Parallax ──────────────────────────
-function initParallaxElements() {
-  const parallaxItems = [
-    { el: document.querySelector('.manifesto__bg-img'), speed: 0.3 },
-    { el: document.querySelector('.image-break__media img'), speed: 0.2 },
-    { el: document.querySelector('.hero__bg img'), speed: 0.15 },
-  ].filter(item => item.el);
-
-  if (parallaxItems.length === 0) return;
-
-  let ticking = false;
-
-  function updateParallax() {
-    const scrollY = window.scrollY;
-    parallaxItems.forEach(({ el, speed }) => {
-      const rect = el.closest('section, .image-break, .hero')?.getBoundingClientRect();
-      if (!rect) return;
-      // Only parallax when element is in viewport
-      if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
-        const offset = (scrollY - (el.closest('section, .image-break, .hero')?.offsetTop || 0)) * speed;
-        el.style.transform = `translateY(${offset}px) scale(1.15)`;
-      }
-    });
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  updateParallax();
-}
-
-// ─── Portfolio Hover Magnetic Effect ──────────────────
-function initPortfolioHoverEffects() {
-  const items = document.querySelectorAll('.portfolio__item');
-
-  items.forEach(item => {
-    const img = item.querySelector('img');
-    const overlay = item.querySelector('.portfolio__item-overlay');
-    if (!img || !overlay) return;
-
-    item.addEventListener('mousemove', (e) => {
-      const rect = item.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-
-      img.style.transform = `scale(1.08) translate(${x * -8}px, ${y * -8}px)`;
-    });
-
-    item.addEventListener('mouseleave', () => {
-      img.style.transform = 'scale(1)';
-    });
-  });
-}
-
-// ─── Philosophy Animated Counters ─────────────────────
-function initPhilosophyCounters() {
-  const values = document.querySelectorAll('.philosophy__stat-number');
-  if (!values.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  values.forEach(v => observer.observe(v));
-}
-
-function animateCounter(el) {
-  const text = el.textContent.trim();
-  const match = text.match(/^([\d]+)(.*)/);
-  if (!match) return;
-
-  const target = parseInt(match[1], 10);
-  const suffix = match[2]; // +, %, etc.
-  const duration = 2000;
-  const start = performance.now();
-
-  function update(time) {
-    const progress = Math.min((time - start) / duration, 1);
-    // Ease-out cubic
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(target * eased);
-    el.textContent = current + suffix;
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    }
-  }
-
-  requestAnimationFrame(update);
-}
-
-// Start when DOM is ready
+// Start
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {

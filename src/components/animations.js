@@ -1,81 +1,92 @@
 // ═══════════════════════════════════════════════════════
-// ISA — Animations & Scroll Effects
+// ISA — Single Scroll Reveal System (IntersectionObserver)
 // ═══════════════════════════════════════════════════════
 
-let observer = null;
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+/**
+ * Master scroll reveal — watches ALL `.scroll-reveal` elements
+ * and adds `.is-visible` when they enter the viewport.
+ */
 export function initScrollAnimations() {
-    // Intersection Observer for reveal-on-scroll
-    observer = new IntersectionObserver((entries) => {
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    if (!revealElements.length) return;
+
+    // Safety: if IntersectionObserver isn't supported or fails,
+    // show everything immediately
+    if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+
+    // Start observer only after a slight delay to allow GSAP pins and Lenis to settle
+    setTimeout(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Only reveal if actually intersecting
+                if (entry.isIntersecting) {
+                    // Small delay ensures we don't flash during fast layout shifts
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, 50);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,       // Element must be 10% visible to reveal
+            rootMargin: '0px 0px -50px 0px' // Only trigger exactly as it enters viewport
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    }, 500);
+
+    // SAFETY FALLBACK: after 6 seconds, force-reveal anything still hidden.
+    // This prevents elements from staying invisible if something goes wrong.
+    setTimeout(() => {
+        revealElements.forEach(el => {
+            if (!el.classList.contains('is-visible')) {
+                el.classList.add('is-visible');
+            }
+        });
+    }, 6000);
+}
+
+// ─── Animated Number Counters ─────────────────────────
+export function initCounters() {
+    const counters = document.querySelectorAll('.hero__stat strong, .philosophy__stat-number');
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                // Unobserve after revealing to save resources
+                animateCounter(entry.target);
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    }, { threshold: 0.5 });
 
-    // Observe all reveal elements
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
-        observer.observe(el);
-    });
+    counters.forEach(el => observer.observe(el));
 }
 
-export function initParallax() {
-    const parallaxElements = document.querySelectorAll('.hero__bg img, .philosophy__image img');
+function animateCounter(el) {
+    const text = el.textContent;
+    const match = text.match(/(\d+)/);
+    if (!match) return;
 
-    if (!parallaxElements.length) return;
+    const target = parseInt(match[1]);
+    const suffix = text.replace(match[1], '');
+    const duration = 2000;
+    const start = performance.now();
 
-    // Use passive scroll listener for performance
-    let ticking = false;
+    function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4);
+        const current = Math.round(target * eased);
+        el.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+    }
 
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                const scrollY = window.scrollY;
-
-                parallaxElements.forEach(el => {
-                    const rect = el.closest('section')?.getBoundingClientRect();
-                    if (!rect) return;
-
-                    // Only apply parallax when element is in viewport
-                    if (rect.bottom > 0 && rect.top < window.innerHeight) {
-                        const speed = 0.15;
-                        const yPos = -(scrollY - (rect.top + window.scrollY)) * speed;
-                        el.style.transform = `translateY(${yPos}px) scale(1.1)`;
-                    }
-                });
-
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
-}
-
-export function initCapsuleScroll() {
-    const capsule = document.getElementById('capsule');
-    if (!capsule) return;
-
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-
-        if (currentScroll > 200) {
-            capsule.style.opacity = '0';
-            capsule.style.transform = 'translateX(-50%) translateY(-100%)';
-            capsule.style.pointerEvents = 'none';
-        } else {
-            capsule.style.opacity = '1';
-            capsule.style.transform = 'translateX(-50%) translateY(0)';
-            capsule.style.pointerEvents = '';
-        }
-
-        lastScroll = currentScroll;
-    }, { passive: true });
+    requestAnimationFrame(update);
 }

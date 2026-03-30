@@ -1,38 +1,67 @@
 // ═══════════════════════════════════════════════════════
-// ISA — Preloader Component
+// ISA — Cinematic Preloader
 // ═══════════════════════════════════════════════════════
 
-export function createPreloader() {
-    const preloader = document.createElement('div');
-    preloader.className = 'preloader';
-    preloader.id = 'preloader';
+import gsap from 'gsap';
 
-    preloader.innerHTML = `
-    <div class="preloader__ornament">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="#C4A97D" stroke-width="1">
-          <path d="M50 5 L95 50 L50 95 L5 50 Z" opacity="0.8"/>
-          <path d="M50 15 L85 50 L50 85 L15 50 Z" opacity="0.6"/>
-          <path d="M50 25 L75 50 L50 75 L25 50 Z" opacity="0.4"/>
-          <path d="M50 35 L65 50 L50 65 L35 50 Z" opacity="0.3"/>
-          <circle cx="50" cy="50" r="4" fill="#C4A97D" opacity="0.5"/>
-        </g>
-      </svg>
+export function createPreloader() {
+  const preloader = document.createElement('div');
+  preloader.className = 'preloader';
+  preloader.id = 'preloader';
+
+  preloader.innerHTML = `
+    <div class="preloader__container">
+      <div class="preloader__brand">ISA<br><span class="preloader__sub">Architecture</span></div>
+      <div class="preloader__counter">
+        <span id="preloaderProgress">0</span>%
+      </div>
     </div>
-    <div class="preloader__text">ISA</div>
+    <div class="preloader__overlay"></div>
   `;
 
-    return preloader;
+  return preloader;
 }
 
-export function hidePreloader() {
-    const preloader = document.getElementById('preloader');
-    if (!preloader) return;
+export function initPreloader() {
+  const preloader = document.getElementById('preloader');
+  const progress = document.getElementById('preloaderProgress');
+  const overlay = document.querySelector('.preloader__overlay');
 
-    setTimeout(() => {
-        preloader.classList.add('hidden');
-        setTimeout(() => {
-            preloader.remove();
-        }, 800);
-    }, 1800);
+  if (!preloader || !progress) return;
+
+  // Prevent scrolling while loading
+  document.body.classList.add('no-scroll');
+
+  const tl = gsap.timeline({
+    onComplete: () => {
+      document.body.classList.remove('no-scroll');
+      preloader.remove();
+      // Dispatch event to start page animations (e.g. Hero)
+      window.dispatchEvent(new Event('appLoaded'));
+    }
+  });
+
+  const state = { value: 0 };
+
+  // Fake loading progress
+  tl.to(state, {
+    value: 100,
+    duration: 2.5,
+    ease: "power2.inOut",
+    onUpdate: () => {
+      progress.textContent = Math.round(state.value);
+    }
+  })
+    .to('.preloader__container', {
+      y: -50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.inOut"
+    })
+    .to(preloader, {
+      yPercent: -100,
+      duration: 1.2,
+      ease: "expo.inOut"
+    }, "-=0.5");
 }
+

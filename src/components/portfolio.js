@@ -1,51 +1,47 @@
 // ═══════════════════════════════════════════════════════
-// ISA — Portfolio Gallery Component
+// ISA — Pinterest-style Masonry Portfolio
 // ═══════════════════════════════════════════════════════
 
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { portfolioItems } from '../data/content.js';
 
-const categories = [
-  { id: 'all', label: 'Все' },
-  { id: 'architecture', label: 'Архитектура' },
-  { id: 'design', label: 'Дизайн' },
-  { id: 'gates', label: 'Ворота' },
-  { id: 'landscape', label: 'Благоустройство' }
-];
-
-let activeFilter = 'all';
+const SIZES = ['tall', 'normal', 'wide', 'normal', 'tall', 'normal', 'wide', 'normal', 'tall', 'normal'];
 
 export function createPortfolio() {
   const section = document.createElement('section');
   section.className = 'portfolio';
   section.id = 'portfolio';
 
-  const filtersHTML = categories.map(cat => `
-    <button class="portfolio__filter ${cat.id === 'all' ? 'active' : ''}" data-filter="${cat.id}">
-      ${cat.label}
-    </button>
-  `).join('');
+  const itemsHTML = portfolioItems.map((item, index) => {
+    const size = item.size || SIZES[index % SIZES.length];
+    const number = String(index + 1).padStart(2, '0');
 
-  const itemsHTML = portfolioItems.map(item => `
-    <div class="portfolio__item reveal" data-category="${item.category}" data-size="${item.size || 'normal'}">
-      <img src="${item.image}" alt="${item.name}" loading="lazy" />
-      <div class="portfolio__item-overlay">
-        <div class="portfolio__item-info">
-          <div class="portfolio__item-name">${item.name}</div>
-          <div class="portfolio__item-category">${getCategoryLabel(item.category)}</div>
+    return `
+      <div class="portfolio__pin hover-target" data-size="${size}" data-category="${item.category}">
+        <div class="portfolio__pin-img-wrap">
+          <img src="${item.image}" alt="${item.name}" loading="lazy" class="portfolio__pin-img" />
+        </div>
+        <div class="portfolio__pin-overlay">
+          <div class="portfolio__pin-info">
+            <span class="portfolio__pin-num">${number}</span>
+            <h3 class="portfolio__pin-name">${item.name}</h3>
+            <span class="portfolio__pin-cat">${getCategoryLabel(item.category)}</span>
+          </div>
         </div>
       </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   section.innerHTML = `
-    <div class="portfolio__header reveal">
-      <h2 class="portfolio__title">Портфолио</h2>
-      <div class="portfolio__filters">
-        ${filtersHTML}
+    <div class="container">
+      <div class="portfolio__header scroll-reveal">
+        <h2 class="portfolio__title heading-primary">Избранные<br>Проекты</h2>
+        <a href="#" class="portfolio__view-all">Смотреть все</a>
       </div>
-    </div>
-    <div class="portfolio__grid" id="portfolioGrid">
-      ${itemsHTML}
+      <div class="portfolio__masonry">
+        ${itemsHTML}
+      </div>
     </div>
   `;
 
@@ -63,43 +59,43 @@ function getCategoryLabel(id) {
 }
 
 export function initPortfolio() {
-  const filters = document.querySelectorAll('.portfolio__filter');
-  const grid = document.getElementById('portfolioGrid');
-  if (!grid) return;
+  const pins = document.querySelectorAll('.portfolio__pin');
 
-  filters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      if (filter === activeFilter) return;
+  // Staggered reveal on scroll
+  pins.forEach((pin, i) => {
+    gsap.fromTo(pin,
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        delay: (i % 4) * 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: pin,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
 
-      // Update active button
-      filters.forEach(f => f.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = filter;
-
-      // Animate filter
-      const items = grid.querySelectorAll('.portfolio__item');
-      items.forEach(item => {
-        item.classList.add('filtering-out');
-      });
-
-      setTimeout(() => {
-        items.forEach(item => {
-          const cat = item.dataset.category;
-          if (filter === 'all' || cat === filter) {
-            item.style.display = '';
-            item.classList.remove('filtering-out');
-            item.classList.add('filtering-in');
-          } else {
-            item.style.display = 'none';
-            item.classList.remove('filtering-out');
+    // Subtle parallax on the image inside
+    const img = pin.querySelector('.portfolio__pin-img');
+    if (img) {
+      gsap.fromTo(img,
+        { scale: 1.12, yPercent: -6 },
+        {
+          scale: 1,
+          yPercent: 6,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: pin,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
           }
-        });
-
-        setTimeout(() => {
-          items.forEach(item => item.classList.remove('filtering-in'));
-        }, 500);
-      }, 300);
-    });
+        }
+      );
+    }
   });
 }

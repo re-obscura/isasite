@@ -3,33 +3,12 @@
 // ═══════════════════════════════════════════════════════
 
 // ─── Hero Text Staggered Entrance ─────────────────────
-export function initHeroTextAnimation() {
-    const title = document.querySelector('.hero__title');
-    const accent = document.querySelector('.hero__title-accent');
-    const subtitle = document.querySelector('.hero__subtitle');
-    const tag = document.querySelector('.hero__tag');
-    const ctaRow = document.querySelector('.hero__cta-row');
-    const glassCard = document.querySelector('.hero__glass-card');
-
-    const elements = [tag, title, accent, subtitle, ctaRow, glassCard].filter(Boolean);
-
-    elements.forEach((el, i) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${0.3 + i * 0.15}s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${0.3 + i * 0.15}s`;
-    });
-
-    setTimeout(() => {
-        elements.forEach(el => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        });
-    }, 1900);
-}
+// (Now handled by GSAP timeline in hero.js)
+export function initHeroTextAnimation() { }
 
 // ─── Animated Number Counters ─────────────────────────
 export function initCounters() {
-    const counters = document.querySelectorAll('.hero__stat-num, .philosophy__value-number');
+    const counters = document.querySelectorAll('.hero__stat strong, .philosophy__stat-number');
     if (!counters.length) return;
 
     const observer = new IntersectionObserver((entries) => {
@@ -70,7 +49,7 @@ function animateCounter(el) {
 // Uses transform + opacity instead of clip-path to avoid invisible images.
 export function initImageReveals() {
     const items = document.querySelectorAll(
-        '.portfolio__item, .philosophy__image'
+        '.philosophy__image-col'
     );
 
     const observer = new IntersectionObserver((entries) => {

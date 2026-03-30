@@ -73,7 +73,7 @@ export function initLensCursor() {
     requestAnimationFrame(render);
 
     // Hover states on portfolio items
-    const items = document.querySelectorAll('.portfolio__item');
+    const items = document.querySelectorAll('.portfolio__pin');
     items.forEach(item => {
         item.addEventListener('mouseenter', () => {
             cursor.classList.add('lens-cursor--active');

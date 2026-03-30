@@ -1,7 +1,9 @@
 // ═══════════════════════════════════════════════════════
-// ISA — Hero Section (Cappen-Inspired Massive Typography)
+// ISA — Cinematic Hero Section
 // ═══════════════════════════════════════════════════════
 
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import heroBg from '../assets/hero-bg.png';
 
 export function createHero() {
@@ -10,45 +12,47 @@ export function createHero() {
   section.id = 'hero';
 
   section.innerHTML = `
+    <!-- Background -->
     <div class="hero__bg">
-      <img src="${heroBg}" alt="Премиальная архитектура" loading="eager" />
-      <div class="hero__overlay"></div>
-      <div class="hero__grain"></div>
+      <img src="${heroBg}" alt="ISA Architecture" class="hero__bg-img" />
+      <div class="hero__bg-overlay"></div>
+      <div class="hero__bg-glass"></div>
     </div>
 
+    <!-- Content -->
     <div class="hero__content">
-      <div class="hero__tag">
-        <span class="hero__tag-line"></span>
-        <span class="hero__tag-text">Премиум архитектура</span>
+
+      <!-- Top meta -->
+      <div class="hero__top">
+        <span class="hero__label">Est. 2026 — Грозный</span>
+        <span class="hero__label">Архитектура &amp; Дизайн</span>
       </div>
 
-      <h1 class="hero__title">
-        <span class="hero__title-line">Фундаментальный</span>
-        <span class="hero__title-line">подход.</span>
-        <span class="hero__title-accent">Безупречный стиль.</span>
-      </h1>
-
-      <p class="hero__subtitle">
-        Архитектура и интерьеры премиум-класса<br>от команды профессионалов.
-      </p>
-
-      <div class="hero__cta-row">
-        <a href="#portfolio" class="hero__cta-link">Смотреть проекты</a>
-        <span class="hero__cta-dash"></span>
-        <a href="#footer" class="hero__cta-link hero__cta-link--muted">Связаться</a>
-      </div>
-    </div>
-
-    <div class="hero__bottom-bar">
-      <div class="hero__scroll-hint" id="scrollArrow">
-        <span class="hero__scroll-text">Scroll</span>
-        <div class="hero__scroll-line">
-          <div class="hero__scroll-dot"></div>
+      <!-- Title Block -->
+      <div class="hero__title-block">
+        <h1 class="hero__title">
+          <span class="hero__title-line"><span class="hero__title-text" id="heroT1">Фундаментальный</span></span>
+          <span class="hero__title-line"><span class="hero__title-text hero__title-text--light" id="heroT2">Подход</span></span>
+        </h1>
+        <div class="hero__desc-glass">
+          <div class="hero__line-accent"></div>
+          <p class="hero__desc">Безупречный стиль и&nbsp;бескомпромиссное качество в&nbsp;каждом проекте</p>
         </div>
       </div>
-      <div class="hero__bottom-info">
-        г. Грозный — 2026
+
+      <!-- Bottom -->
+      <div class="hero__bottom">
+        <div class="hero__scroll-hint">
+          <div class="hero__scroll-bar"><div class="hero__scroll-thumb"></div></div>
+          <span class="hero__scroll-label">Scroll</span>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat"><strong>150+</strong><span>проектов</span></div>
+          <div class="hero__stat"><strong>12</strong><span>лет опыта</span></div>
+          <div class="hero__stat"><strong>25</strong><span>лет гарантии</span></div>
+        </div>
       </div>
+
     </div>
   `;
 
@@ -56,13 +60,47 @@ export function createHero() {
 }
 
 export function initHero() {
-  const scrollArrow = document.getElementById('scrollArrow');
-  if (scrollArrow) {
-    scrollArrow.addEventListener('click', () => {
-      const next = document.getElementById('stories') || document.getElementById('portfolio');
-      if (next) {
-        next.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  }
+  const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+
+  tl.fromTo('.hero__bg-img',
+    { scale: 1.2, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 2, ease: 'power2.out' }
+  )
+    .fromTo('.hero__label',
+      { y: 12, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power2.out' },
+      '-=1.4'
+    )
+    .fromTo('#heroT1',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2 },
+      '-=1.2'
+    )
+    .fromTo('#heroT2',
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2 },
+      '-=0.9'
+    )
+    .fromTo('.hero__desc-glass',
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1 },
+      '-=0.6'
+    )
+    .fromTo('.hero__bottom',
+      { opacity: 0 },
+      { opacity: 1, duration: 1 },
+      '-=0.5'
+    );
+
+  // Subtle parallax
+  gsap.to('.hero__bg', {
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    },
+    yPercent: 10,
+    ease: 'none'
+  });
 }

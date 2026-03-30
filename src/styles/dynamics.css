@@ -52,11 +52,11 @@
     border-radius: var(--radius-lg);
     padding: 1px;
     background: linear-gradient(135deg,
-            rgba(196, 169, 125, 0.35),
+            rgba(226, 198, 120, 0.35),
             rgba(90, 58, 40, 0.1),
-            rgba(196, 169, 125, 0.25),
+            rgba(226, 198, 120, 0.25),
             rgba(90, 58, 40, 0.05),
-            rgba(196, 169, 125, 0.35));
+            rgba(226, 198, 120, 0.35));
     background-size: 300% 300%;
     animation: gradientBorder 6s ease-in-out infinite;
     -webkit-mask:
@@ -66,6 +66,7 @@
     mask-composite: exclude;
     z-index: -2;
     pointer-events: none;
+    filter: drop-shadow(0 0 8px rgba(226, 198, 120, 0.15));
 }
 
 /* Base glass background */
@@ -107,10 +108,10 @@
     background: linear-gradient(var(--color-graphite),
             var(--color-graphite)) padding-box,
         conic-gradient(from 0deg,
-            rgba(196, 169, 125, 0.45),
+            rgba(226, 198, 120, 0.45),
             transparent 30%,
             transparent 70%,
-            rgba(196, 169, 125, 0.45)) border-box;
+            rgba(226, 198, 120, 0.45)) border-box;
     animation: ringRotate 8s linear infinite;
     z-index: -1;
 }
@@ -141,6 +142,7 @@
     width: 0;
     height: 1px;
     background: linear-gradient(to right, var(--color-sand), transparent);
+    box-shadow: 0 0 6px rgba(226, 198, 120, 0.2);
     transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

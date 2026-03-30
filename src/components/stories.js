@@ -1,101 +1,79 @@
 // ═══════════════════════════════════════════════════════
-// ISA — Stories (Directions) Component
+// ISA — Cinematic Directions (Stories) GSAP Horizontal
 // ═══════════════════════════════════════════════════════
 
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { directions } from '../data/content.js';
 
 export function createStories() {
   const section = document.createElement('section');
-  section.className = 'stories';
+  section.className = 'stories-section';
   section.id = 'stories';
 
-  const circlesHTML = directions.map((dir, i) => `
-    <div class="stories__item reveal" data-direction="${dir.id}" style="transition-delay: ${0.1 + i * 0.08}s">
-      <div class="stories__circle">
-        <div class="stories__circle-inner">
-          <img src="${dir.image}" alt="${dir.category}" loading="lazy" />
-        </div>
+  const cardsHTML = directions.map((dir, i) => `
+    <div class="story-card" data-index="${i}">
+      <div class="story-card__img-wrapper">
+        <img src="${dir.image}" alt="${dir.category}" loading="lazy" class="story-card__img"/>
       </div>
-      <div class="stories__label">
-        <span class="stories__label-name">${dir.name}</span>
-        ${dir.category}
+      <div class="story-card__content">
+        <span class="story-card__meta">${String(i + 1).padStart(2, '0')} // ${dir.category}</span>
+        <h3 class="story-card__title heading-alt">${dir.name}</h3>
       </div>
     </div>
   `).join('');
 
   section.innerHTML = `
-    <h2 class="stories__title reveal">Направления</h2>
-    <div class="stories__scroll stagger">
-      ${circlesHTML}
+    <div class="stories-wrapper">
+      <div class="stories-header">
+        <h2 class="stories-heading heading-primary">Экспертиза</h2>
+      </div>
+      <div class="stories-track">
+        ${cardsHTML}
+      </div>
     </div>
   `;
 
   return section;
 }
 
-export function createStoryPopup() {
-  const overlay = document.createElement('div');
-  overlay.className = 'story-popup-overlay glass-overlay-backdrop';
-  overlay.id = 'storyPopup';
-
-  overlay.innerHTML = `
-    <div class="story-popup glass-popup">
-      <button class="story-popup__close" aria-label="Закрыть">
-        <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-      </button>
-      <div class="story-popup__image">
-        <img src="" alt="" />
-      </div>
-      <div class="story-popup__body">
-        <div class="story-popup__tag"></div>
-        <h3 class="story-popup__title"></h3>
-        <p class="story-popup__desc"></p>
-        <button class="btn-accent"></button>
-      </div>
-    </div>
-  `;
-
-  return overlay;
-}
 
 export function initStories() {
-  const items = document.querySelectorAll('.stories__item');
-  const popup = document.getElementById('storyPopup');
-  if (!popup) return;
+  const track = document.querySelector('.stories-track');
+  const cards = gsap.utils.toArray('.story-card');
 
-  const closeBtn = popup.querySelector('.story-popup__close');
+  if (track && cards.length > 0) {
+    const totalWidth = track.scrollWidth - window.innerWidth;
 
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      const dirId = item.dataset.direction;
-      const dir = directions.find(d => d.id === dirId);
-      if (!dir) return;
-
-      popup.querySelector('.story-popup__image img').src = dir.image;
-      popup.querySelector('.story-popup__image img').alt = dir.title;
-      popup.querySelector('.story-popup__tag').textContent = dir.category;
-      popup.querySelector('.story-popup__title').textContent = dir.title;
-      popup.querySelector('.story-popup__desc').textContent = dir.description;
-      popup.querySelector('.btn-accent').textContent = dir.cta;
-
-      popup.classList.add('active');
-      document.body.classList.add('no-scroll');
+    const scrollTween = gsap.to(track, {
+      x: -totalWidth,
+      ease: "none",
+      id: "horizontal-scroll",
+      scrollTrigger: {
+        trigger: ".stories-section",
+        pin: true,
+        scrub: 1,
+        end: () => "+=" + track.scrollWidth,
+      }
     });
-  });
 
-  closeBtn.addEventListener('click', closePopup);
-  popup.addEventListener('click', (e) => {
-    if (e.target === popup) closePopup();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && popup.classList.contains('active')) {
-      closePopup();
-    }
-  });
-}
-
-function closePopup() {
-  const popup = document.getElementById('storyPopup');
-  popup.classList.remove('active');
-  document.body.classList.remove('no-scroll');
+    // Parallax on images inside horizontal scroll
+    cards.forEach(card => {
+      const img = card.querySelector('.story-card__img');
+      gsap.fromTo(img,
+        { xPercent: -10 },
+        {
+          xPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: card,
+            containerAnimation: scrollTween,
+            start: "left right",
+            end: "right left",
+            scrub: true,
+          }
+        }
+      );
+    });
+  }
 }

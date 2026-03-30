@@ -3,6 +3,7 @@
 // ═══════════════════════════════════════════════════════
 
 import { navLinks } from '../data/content.js';
+import logoSvg from '/Иса_лого_основной_белый.svg?url';
 
 export function createNavigation() {
     const nav = document.createElement('nav');
@@ -11,7 +12,7 @@ export function createNavigation() {
 
     const linksHTML = navLinks.map(link =>
         `<a href="${link.href}" class="nav-bar__link">${link.label}</a>`
-    ).join('<span class="nav-bar__dot">○</span>');
+    ).join('<span class="nav-bar__dot"></span>');
 
     const mobileLinksHTML = navLinks.map(link =>
         `<a href="${link.href}" class="nav-bar__mobile-link">${link.label}</a>`
@@ -20,7 +21,7 @@ export function createNavigation() {
     nav.innerHTML = `
     <div class="nav-bar__inner">
       <div class="nav-bar__logo">
-        <span class="nav-bar__logo-text">ISA</span>
+        <img src="${logoSvg}" alt="ISA" class="nav-bar__logo-img" />
       </div>
       <div class="nav-bar__line"></div>
       <div class="nav-bar__links">

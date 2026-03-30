@@ -129,7 +129,7 @@
 .section-ornament__line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(196, 169, 125, 0.15), transparent);
+    background: linear-gradient(to right, transparent, rgba(226, 198, 120, 0.15), transparent);
 }
 
 .section-ornament__diamond {
