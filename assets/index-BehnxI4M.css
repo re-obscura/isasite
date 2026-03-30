@@ -1790,6 +1790,9 @@ body:hover .cursor-ring {
     line-height: 0.85;
     margin: 0;
     text-transform: uppercase;
+    color: var(--color-ink);
+    -webkit-text-stroke: 0;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
 }
 
 /* ─── Form & Contacts ─── */
