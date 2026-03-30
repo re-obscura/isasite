@@ -6,49 +6,40 @@
       </div>
     </div>
     <div class="preloader__overlay"></div>
-  `,e}function tc(){let e=document.getElementById(`preloader`),t=document.getElementById(`preloaderProgress`);if(document.querySelector(`.preloader__overlay`),!e||!t)return;document.body.classList.add(`no-scroll`);let n=hi.timeline({onComplete:()=>{document.body.classList.remove(`no-scroll`),e.remove(),window.dispatchEvent(new Event(`appLoaded`))}}),r={value:0};n.to(r,{value:100,duration:2.5,ease:`power2.inOut`,onUpdate:()=>{t.textContent=Math.round(r.value)}}).to(`.preloader__container`,{y:-50,opacity:0,duration:1,ease:`power3.inOut`}).to(e,{yPercent:-100,duration:1.2,ease:`expo.inOut`},`-=0.5`)}var nc=`/isasite/assets/hero-bg-DcBW_atb.png`;function rc(){let e=document.createElement(`section`);return e.className=`hero`,e.id=`hero`,e.innerHTML=`
-    <!-- Background -->
-    <div class="hero__bg">
-      <img src="${nc}" alt="ISA Architecture" class="hero__bg-img" />
-      <div class="hero__bg-overlay"></div>
-      <div class="hero__bg-glass"></div>
-    </div>
+  `,e}function tc(){let e=document.getElementById(`preloader`),t=document.getElementById(`preloaderProgress`);if(document.querySelector(`.preloader__overlay`),!e||!t)return;document.body.classList.add(`no-scroll`);let n=hi.timeline({onComplete:()=>{document.body.classList.remove(`no-scroll`),e.remove(),window.dispatchEvent(new Event(`appLoaded`))}}),r={value:0};n.to(r,{value:100,duration:2.5,ease:`power2.inOut`,onUpdate:()=>{t.textContent=Math.round(r.value)}}).to(`.preloader__container`,{y:-50,opacity:0,duration:1,ease:`power3.inOut`}).to(e,{yPercent:-100,duration:1.2,ease:`expo.inOut`},`-=0.5`)}var nc=`/isasite/assets/hero-bg-DcBW_atb.png`;function rc(){let e=document.createElement(`section`);return e.className=`cover`,e.id=`hero`,e.innerHTML=`
+    <div class="cover__grid">
+      <!-- Left Column: Typography -->
+      <div class="cover__text-col">
+        <div class="cover__folio">
+          <span>ISA ARCHITECTURE &amp; DESIGN</span>
+          <span>ISSUE N°01</span>
+        </div>
 
-    <!-- Content -->
-    <div class="hero__content">
-
-      <!-- Top meta -->
-      <div class="hero__top">
-        <span class="hero__label">Архитектура &amp; Дизайн</span>
-      </div>
-
-      <!-- Title Block -->
-      <div class="hero__title-block">
-        <h1 class="hero__title">
-          <span class="hero__title-line"><span class="hero__title-text" id="heroT1">Фундаментальный</span></span>
-          <span class="hero__title-line"><span class="hero__title-text hero__title-text--light" id="heroT2">Подход</span></span>
+        <h1 class="cover__title">
+          <span class="cover__title-word" id="heroT1">FUNDA</span><br>
+          <span class="cover__title-word cover__title-word--indent" id="heroT2">MENTAL</span>
         </h1>
-        <div class="hero__desc-glass">
-          <div class="hero__line-accent"></div>
-          <p class="hero__desc">Безупречный стиль и&nbsp;бескомпромиссное качество в&nbsp;каждом проекте</p>
+
+        <div class="cover__barcodes">
+          <div class="cover__desc">
+            Безупречный стиль и бескомпромиссное качество в каждом проекте. Архитектура нового времени.
+          </div>
+          <div class="cover__stats">
+            <div><strong>150+</strong> Проектов</div>
+            <div><strong>12</strong> Лет опыта</div>
+            <div><strong>25</strong> Лет гарантии</div>
+          </div>
         </div>
       </div>
 
-      <!-- Bottom -->
-      <div class="hero__bottom">
-        <div class="hero__scroll-hint">
-          <div class="hero__scroll-bar"><div class="hero__scroll-thumb"></div></div>
-          <span class="hero__scroll-label">Scroll</span>
-        </div>
-        <div class="hero__stats">
-          <div class="hero__stat"><strong>150+</strong><span>проектов</span></div>
-          <div class="hero__stat"><strong>12</strong><span>лет опыта</span></div>
-          <div class="hero__stat"><strong>25</strong><span>лет гарантии</span></div>
+      <!-- Right Column: Image -->
+      <div class="cover__img-col">
+        <div class="cover__img-wrap">
+          <img src="${nc}" alt="ISA Architecture" class="cover__img" />
         </div>
       </div>
-
     </div>
-  `,e}function ic(){hi.timeline({defaults:{ease:`expo.out`}}).fromTo(`.hero__bg-img`,{scale:1.2,opacity:0},{scale:1,opacity:1,duration:2,ease:`power2.out`}).fromTo(`.hero__label`,{y:12,opacity:0},{y:0,opacity:1,duration:.8,stagger:.1,ease:`power2.out`},`-=1.4`).fromTo(`#heroT1`,{y:40,opacity:0},{y:0,opacity:1,duration:1.2},`-=1.2`).fromTo(`#heroT2`,{y:40,opacity:0},{y:0,opacity:1,duration:1.2},`-=0.9`).fromTo(`.hero__desc-glass`,{y:20,opacity:0},{y:0,opacity:1,duration:1},`-=0.6`).fromTo(`.hero__bottom`,{opacity:0},{opacity:1,duration:1},`-=0.5`),hi.to(`.hero__bg`,{scrollTrigger:{trigger:`.hero`,start:`top top`,end:`bottom top`,scrub:!0},yPercent:10,ease:`none`})}var ac=`/isasite/assets/portfolio-arch-WPAjTr2s.png`,oc=`/isasite/assets/portfolio-design-DkQb1749.png`,sc=`/isasite/assets/portfolio-landscape-DUKQTMdj.png`,cc=`/isasite/assets/portfolio-gates-DKivyY0b.png`,lc=`/isasite/assets/team-photo-D90Kgejy.png`,uc=[{id:`architecture`,name:`Villa «Sochi»`,category:`Архитектура`,image:ac,title:`Архитектура`,description:`Проектируем дома и виллы, которые становятся архитектурными доминантами. Каждый проект — это синтез функциональности, эстетики и инженерной точности. От концепции до авторского надзора.`,cta:`Смотреть проекты`},{id:`design`,name:`Penthouse «Moscow»`,category:`Дизайн`,image:oc,title:`Дизайн интерьеров`,description:`Создаём пространства, в которых хочется жить. Премиальные материалы, авторская мебель, продуманный свет. Каждый интерьер — отражение характера владельца.`,cta:`Смотреть проекты`},{id:`landscape`,name:`Парк «Patriot»`,category:`Благоустройство`,image:sc,title:`Благоустройство`,description:`Превращаем территорию в продолжение дома. Ландшафтный дизайн, мощение, системы освещения и полива. Создаём ощущение приватного парка.`,cta:`Смотреть проекты`},{id:`gates`,name:`Metal Gate`,category:`Ворота`,image:cc,title:`Ворота`,description:`Собственное производство. Кованые и автоматические ворота из высоколегированной стали. Каждое изделие — ручная работа с гарантией 25 лет. Фактура металла, которую хочется трогать.`,cta:`Смотреть каталог`}],dc=[{id:1,name:`Резиденция «Эльбрус»`,category:`architecture`,image:ac,size:`tall`},{id:2,name:`Пентхаус «Москва-Сити»`,category:`design`,image:oc,size:`normal`},{id:3,name:`Кованые ворота «Крепость»`,category:`gates`,image:cc,size:`wide`},{id:4,name:`Парк «Патриот»`,category:`landscape`,image:sc,size:`normal`},{id:5,name:`Вилла «Сочи»`,category:`architecture`,image:nc,size:`normal`},{id:6,name:`Лофт «Грозный»`,category:`design`,image:oc,size:`tall`},{id:7,name:`Усадьба «Кавказ»`,category:`architecture`,image:ac,size:`normal`},{id:8,name:`Террасный сад «Мирный»`,category:`landscape`,image:sc,size:`wide`},{id:9,name:`Ворота «Империал»`,category:`gates`,image:cc,size:`tall`},{id:10,name:`Апартаменты «Высота»`,category:`design`,image:oc,size:`normal`}],fc={tag:`Наша философия`,title:`Мы строим то, что
+  `,e}function ic(){hi.timeline({defaults:{ease:`expo.out`}}).fromTo(`.cover__img-wrap`,{clipPath:`inset(100% 0 0 0)`},{clipPath:`inset(0% 0 0 0)`,duration:1.5,ease:`power3.inOut`}).fromTo(`.cover__img`,{scale:1.2},{scale:1,duration:2,ease:`power2.out`},`-=1.5`).fromTo(`.cover__folio`,{opacity:0,y:-20},{opacity:1,y:0,duration:1},`-=1.2`).fromTo(`#heroT1`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=1`).fromTo(`#heroT2`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=0.9`).fromTo(`.cover__barcodes`,{opacity:0},{opacity:1,duration:1},`-=0.5`),hi.to(`.cover__img`,{scrollTrigger:{trigger:`.cover`,start:`top top`,end:`bottom top`,scrub:!0},yPercent:15,ease:`none`})}var ac=`/isasite/assets/portfolio-arch-WPAjTr2s.png`,oc=`/isasite/assets/portfolio-design-DkQb1749.png`,sc=`/isasite/assets/portfolio-landscape-DUKQTMdj.png`,cc=`/isasite/assets/portfolio-gates-DKivyY0b.png`,lc=`/isasite/assets/team-photo-D90Kgejy.png`,uc=[{id:`architecture`,name:`Villa «Sochi»`,category:`Архитектура`,image:ac,title:`Архитектура`,description:`Проектируем дома и виллы, которые становятся архитектурными доминантами. Каждый проект — это синтез функциональности, эстетики и инженерной точности. От концепции до авторского надзора.`,cta:`Смотреть проекты`},{id:`design`,name:`Penthouse «Moscow»`,category:`Дизайн`,image:oc,title:`Дизайн интерьеров`,description:`Создаём пространства, в которых хочется жить. Премиальные материалы, авторская мебель, продуманный свет. Каждый интерьер — отражение характера владельца.`,cta:`Смотреть проекты`},{id:`landscape`,name:`Парк «Patriot»`,category:`Благоустройство`,image:sc,title:`Благоустройство`,description:`Превращаем территорию в продолжение дома. Ландшафтный дизайн, мощение, системы освещения и полива. Создаём ощущение приватного парка.`,cta:`Смотреть проекты`},{id:`gates`,name:`Metal Gate`,category:`Ворота`,image:cc,title:`Ворота`,description:`Собственное производство. Кованые и автоматические ворота из высоколегированной стали. Каждое изделие — ручная работа с гарантией 25 лет. Фактура металла, которую хочется трогать.`,cta:`Смотреть каталог`}],dc=[{id:1,name:`Резиденция «Эльбрус»`,category:`architecture`,image:ac,size:`tall`},{id:2,name:`Пентхаус «Москва-Сити»`,category:`design`,image:oc,size:`normal`},{id:3,name:`Кованые ворота «Крепость»`,category:`gates`,image:cc,size:`wide`},{id:4,name:`Парк «Патриот»`,category:`landscape`,image:sc,size:`normal`},{id:5,name:`Вилла «Сочи»`,category:`architecture`,image:nc,size:`normal`},{id:6,name:`Лофт «Грозный»`,category:`design`,image:oc,size:`tall`},{id:7,name:`Усадьба «Кавказ»`,category:`architecture`,image:ac,size:`normal`},{id:8,name:`Террасный сад «Мирный»`,category:`landscape`,image:sc,size:`wide`},{id:9,name:`Ворота «Империал»`,category:`gates`,image:cc,size:`tall`},{id:10,name:`Апартаменты «Высота»`,category:`design`,image:oc,size:`normal`}],fc={tag:`Наша философия`,title:`Мы строим то, что
 будет стоять
 веками.`,texts:[`Наш подход — фундаментальный. За каждым проектом стоит мужское слово, команда профессионалов и безупречный вкус. Мы не гонимся за трендами — мы создаём то, что будет актуально через десятилетия.`,`Прозрачность на каждом этапе. Вы всегда знаете, что происходит с вашим проектом, и можете быть уверены в результате.`],image:lc,values:[{number:`150+`,label:`Проектов`},{number:`12`,label:`Лет опыта`},{number:`98%`,label:`Довольных клиентов`},{number:`25`,label:`Лет гарантии`}]},pc={ctaTag:`Начнём сотрудничество`,ctaTitle:`Обсудим ваш
 проект?`,contacts:[{label:`Телефон`,value:`+7 (928) 000-00-00`},{label:`Email`,value:`info@isa-design.ru`},{label:`Адрес`,value:`г. Грозный, пр. Путина, 1`}],socials:[`telegram`,`whatsapp`,`instagram`],copyright:`© 2026 ISA Architecture & Design. Все права защищены.`},mc=[{label:`Главная`,href:`#hero`},{label:`Направления`,href:`#stories`},{label:`Портфолио`,href:`#portfolio`},{label:`О нас`,href:`#philosophy`},{label:`Контакты`,href:`#footer`}],hc=`/isasite/%D0%98%D1%81%D0%B0_%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9.svg`;function gc(){let e=document.createElement(`nav`);return e.className=`nav-bar`,e.id=`navBar`,e.innerHTML=`
@@ -182,9 +173,9 @@
         <div class="portfolio__pin-img-wrap">
           <img src="${e.image}" alt="${e.name}" loading="lazy" class="portfolio__pin-img" />
         </div>
-        <div class="portfolio__pin-overlay">
+        <div class="portfolio__pin-caption">
           <div class="portfolio__pin-info">
-            <span class="portfolio__pin-num">${r}</span>
+            <span class="portfolio__pin-num">FIG. ${r}</span>
             <h3 class="portfolio__pin-name">${e.name}</h3>
             <span class="portfolio__pin-cat">${Ec(e.category)}</span>
           </div>
