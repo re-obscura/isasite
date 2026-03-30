@@ -10,7 +10,7 @@
     --color-graphite-light: #222222;
 
     --color-titanium: #b5a99b;
-    --color-bronze: #b08d5b;
+    --color-bronze: #885f47;
 
     --color-ivory: #F8F6F0;
     --color-white: #FFFFFF;
@@ -18,6 +18,14 @@
     --color-sand-light: #f0d9a0;
     --color-beige: #d4b87a;
     --color-chocolate-light: #8a6a42;
+
+    /* Light theme surfaces & brand colors */
+    --color-surface: #f5f2ed;
+    --color-surface-alt: #edeae4;
+    --color-surface-dark: #e5e1da;
+    --color-ink: #3a3227;
+    --color-ink-light: #5d5747;
+    --color-ink-muted: #8a8072;
 
     /* Gold glow for text-shadow & box-shadow */
     --color-gold-glow: rgba(226, 198, 120, 0.45);
@@ -119,7 +127,7 @@ html {
     /* Lenis will handle the scrolling, so smooth scroll is handled via JS */
     -webkit-text-size-adjust: 100%;
     overflow-x: hidden;
-    background-color: var(--color-black);
+    background-color: var(--color-surface);
 }
 /* Lenis Recommended CSS */
 html.lenis,
@@ -142,8 +150,8 @@ body {
     font-family: var(--font-body);
     font-size: var(--fs-body);
     line-height: var(--lh-body);
-    color: var(--color-white);
-    background-color: var(--color-black);
+    color: var(--color-ink);
+    background-color: var(--color-surface);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -975,7 +983,7 @@ body.menu-open .nav-bar {
 
 .stories-section {
     position: relative;
-    background: var(--color-black);
+    background: var(--color-surface);
     /* overflow must NOT be hidden — GSAP pin makes section position:fixed */
 }
 
@@ -994,7 +1002,7 @@ body.menu-open .nav-bar {
 
 .stories-heading {
     font-size: clamp(2rem, 6vw, 5rem);
-    color: var(--color-white);
+    color: var(--color-ink);
     margin: 0;
 }
 
@@ -1069,7 +1077,7 @@ body.menu-open .nav-bar {
 
 .manifesto-section {
     padding: var(--space-2xl) 0;
-    background: var(--color-graphite);
+    background: var(--color-surface-alt);
     position: relative;
 }
 
@@ -1110,7 +1118,7 @@ body.menu-open .nav-bar {
     font-family: var(--font-heading);
     font-size: clamp(3rem, 7vw, 7rem);
     line-height: var(--lh-none);
-    color: var(--color-white);
+    color: var(--color-ink);
     text-transform: uppercase;
     margin: 0;
     will-change: transform, opacity;
@@ -1124,7 +1132,6 @@ body.menu-open .nav-bar {
     color: var(--color-bronze);
     padding-left: 30vw;
     font-weight: var(--fw-light);
-    text-shadow: 0 0 24px rgba(226, 198, 120, 0.3);
 }
 
 .manifesto-footer {
@@ -1215,20 +1222,20 @@ body.menu-open .nav-bar {
     text-transform: uppercase;
     letter-spacing: 0.04em;
     line-height: 1.1;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
     transition: color var(--duration-normal) ease;
 }
 
 .values-editorial__item:hover .values-editorial__title {
-    color: var(--color-sand-light);
+    color: var(--color-bronze);
 }
 
 .values-editorial__desc {
     font-family: var(--font-body);
     font-size: clamp(0.82rem, 0.95vw, 0.95rem);
     line-height: 1.75;
-    color: rgba(226, 210, 180, 0.4);
+    color: var(--color-ink-light);
     font-weight: 300;
     max-width: 340px;
     margin: 0;
@@ -1236,7 +1243,7 @@ body.menu-open .nav-bar {
 }
 
 .values-editorial__item:hover .values-editorial__desc {
-    color: rgba(226, 210, 180, 0.6);
+    color: var(--color-ink);
 }
 
 /* Bottom accent line */
@@ -1311,7 +1318,7 @@ body.menu-open .nav-bar {
     font-family: var(--font-heading);
     font-size: clamp(1.05rem, 1.4vw, 1.25rem);
     font-weight: var(--fw-medium);
-    color: var(--color-ivory);
+    color: var(--color-ink);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     margin-bottom: var(--space-md);
@@ -1321,7 +1328,7 @@ body.menu-open .nav-bar {
     font-family: var(--font-body);
     font-size: clamp(0.8rem, 0.9vw, 0.88rem);
     line-height: 1.7;
-    color: rgba(226, 210, 180, 0.35);
+    color: var(--color-ink-light);
     font-weight: 300;
 }
 
@@ -1461,7 +1468,7 @@ body.menu-open .nav-bar {
     font-weight: var(--fw-bold);
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     margin: 0;
 }
 
@@ -1602,7 +1609,7 @@ body.menu-open .nav-bar {
     font-size: clamp(0.75rem, 1vw, 0.95rem);
     font-weight: var(--fw-bold);
     text-transform: uppercase;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     letter-spacing: 0.03em;
     margin: 0 0 4px 0;
     line-height: 1.3;
@@ -1651,7 +1658,7 @@ body.menu-open .nav-bar {
 
 .philosophy {
     padding: clamp(80px, 10vh, 140px) 0;
-    background: var(--color-graphite);
+    background: var(--color-surface);
     position: relative;
     overflow: hidden;
 }
@@ -1738,7 +1745,7 @@ body.menu-open .nav-bar {
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    color: var(--color-ivory);
+    color: var(--color-ink);
 }
 
 .philosophy__headline-accent {
@@ -1746,7 +1753,7 @@ body.menu-open .nav-bar {
     font-family: var(--font-heading);
     font-size: clamp(1.8rem, 4vw, 3.4rem);
     font-weight: 400;
-    color: var(--color-sand);
+    color: var(--color-bronze);
     line-height: 1.15;
     text-transform: uppercase;
     margin-top: 0.15em;
@@ -1801,7 +1808,7 @@ body.menu-open .nav-bar {
     font-family: var(--font-body);
     font-size: clamp(0.88rem, 1.1vw, 1.02rem);
     font-weight: 300;
-    color: rgba(212, 197, 169, 0.7);
+    color: var(--color-ink-light);
     line-height: 1.8;
     margin: 0 0 var(--space-md) 0;
 }
@@ -1846,7 +1853,7 @@ body.menu-open .nav-bar {
     font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: rgba(212, 197, 169, 0.4);
+    color: var(--color-ink-muted);
 }
 
 /* ━━━ FOOTER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -2215,7 +2222,7 @@ body.menu-open .nav-bar {
     position: relative;
     padding: clamp(80px, 12vh, 160px) 0;
     overflow: hidden;
-    background: var(--color-black);
+    background: var(--color-surface-alt);
 }
 
 .manifesto__ornament-bg {
@@ -2270,7 +2277,7 @@ body.menu-open .nav-bar {
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     margin: 0 0 var(--space-lg) 0;
 }
 
@@ -2278,7 +2285,7 @@ body.menu-open .nav-bar {
     font-family: var(--font-heading);
     font-size: clamp(1.3rem, 2.2vw, 1.8rem);
     font-weight: 400;
-    color: rgba(212, 197, 169, 0.7);
+    color: var(--color-ink-light);
     line-height: 1.5;
     text-transform: uppercase;
     margin: 0;
@@ -2348,7 +2355,7 @@ body.menu-open .nav-bar {
     font-weight: var(--fw-bold);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     margin: 0 0 var(--space-xs) 0;
 }
 
@@ -2356,7 +2363,7 @@ body.menu-open .nav-bar {
     font-family: var(--font-body);
     font-size: clamp(0.82rem, 0.95vw, 0.92rem);
     font-weight: 300;
-    color: rgba(212, 197, 169, 0.55);
+    color: var(--color-ink-light);
     line-height: 1.7;
     margin: 0;
 }
@@ -2412,7 +2419,7 @@ body.menu-open .nav-bar {
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     margin: 0;
 }
 
@@ -2555,20 +2562,20 @@ body.menu-open .nav-bar {
     text-transform: uppercase;
     letter-spacing: 0.03em;
     line-height: 1.1;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     margin: 0 0 clamp(0.8rem, 1.5vw, 1.2rem) 0;
     transition: color var(--duration-normal) ease;
 }
 
 .process-step:hover .process-step__title {
-    color: var(--color-sand-light);
+    color: var(--color-bronze);
 }
 
 .process-step__desc {
     font-family: var(--font-body);
     font-size: clamp(0.8rem, 0.9vw, 0.9rem);
     line-height: 1.75;
-    color: rgba(226, 210, 180, 0.35);
+    color: var(--color-ink-light);
     font-weight: 300;
     max-width: 300px;
     margin: 0;
@@ -2576,7 +2583,7 @@ body.menu-open .nav-bar {
 }
 
 .process-step:hover .process-step__desc {
-    color: rgba(226, 210, 180, 0.55);
+    color: var(--color-ink);
 }
 
 /* Bottom accent */
@@ -2645,7 +2652,7 @@ body.menu-open .nav-bar {
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     margin: 0;
 }
 
@@ -2722,7 +2729,7 @@ body.menu-open .nav-bar {
     height: 8px;
     border-radius: 50%;
     border: 1.5px solid rgba(226, 198, 120, 0.25);
-    background: var(--color-graphite);
+    background: var(--color-surface);
     flex-shrink: 0;
     position: relative;
     z-index: 2;
@@ -2771,14 +2778,14 @@ body.menu-open .nav-bar {
     font-weight: var(--fw-medium);
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    color: var(--color-ivory);
+    color: var(--color-ink);
     line-height: 1.2;
     margin: 0;
     transition: color var(--duration-normal) ease;
 }
 
 .awards-ledger__row:hover .awards-ledger__title {
-    color: var(--color-sand-light);
+    color: var(--color-bronze);
 }
 
 .awards-ledger__org {
