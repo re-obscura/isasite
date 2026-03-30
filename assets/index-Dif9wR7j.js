@@ -303,44 +303,37 @@
         </div>
       </div>
     </div>
-  `,e}hi.registerPlugin($);function Pc(){let e=document.createElement(`section`);return e.className=`awards`,e.innerHTML=`
+  `,e}hi.registerPlugin($);function Pc(){let e=document.createElement(`section`);return e.className=`awards`,e.id=`awards`,e.innerHTML=`
     <div class="awards__container">
-      <div class="awards-ledger__header">
-        <div class="awards-ledger__header-top">
-          <span class="awards-ledger__tag">Признание</span>
-          <div class="awards-ledger__header-rule"></div>
+      <div class="archival-header scroll-reveal">
+        <h2 class="archival-heading">НАГРАДЫ //<br/>ПРИЗНАНИЕ</h2>
+        <div class="archival-meta">
+          <span class="archival-meta-text">РЕЕСТР ДОСТИЖЕНИЙ (2021–2024)</span>
         </div>
-        <h2 class="awards-ledger__heading">Награды<br/><span class="awards-ledger__heading-light">и достижения</span></h2>
       </div>
-      <div class="awards-ledger__list">
-        ${[{year:`2024`,title:`Лучший архитектурный проект`,org:`Architecture Awards СКФО`,category:`Архитектура`},{year:`2023`,title:`Премия за дизайн интерьера`,org:`Interior Design Russia`,category:`Дизайн`},{year:`2022`,title:`Инновации в благоустройстве`,org:`Urban Design Forum`,category:`Благоустройство`},{year:`2021`,title:`Мастер ковки и металла`,org:`Craft & Design Award`,category:`Производство`}].map((e,t)=>`
-    <div class="awards-ledger__row" data-index="${t}">
-      <div class="awards-ledger__year-col">
-        <span class="awards-ledger__year">${e.year}</span>
+      
+      <div class="archival-ledger">
+        <div class="archival-ledger__inner">
+          ${[{year:`2024`,title:`Лучший архитектурный проект`,org:`Architecture Awards СКФО`,category:`Архитектура`},{year:`2023`,title:`Премия за дизайн интерьера`,org:`Interior Design Russia`,category:`Дизайн`},{year:`2022`,title:`Инновации в благоустройстве`,org:`Urban Design Forum`,category:`Ландшафт`},{year:`2021`,title:`Мастер ковки и металла`,org:`Craft & Design Award`,category:`Производство`}].map((e,t)=>`
+    <div class="archival-row" data-index="${t}">
+      <div class="archival-cell archival-cell--year">
+        <span class="archival-year">${e.year}</span>
       </div>
-      <div class="awards-ledger__divider-col">
-        <div class="awards-ledger__dot"></div>
-        <div class="awards-ledger__vert-line"></div>
+      <div class="archival-cell archival-cell--cat">
+        <span class="archival-cat">[ ${e.category} ]</span>
       </div>
-      <div class="awards-ledger__info-col">
-        <span class="awards-ledger__category">${e.category}</span>
-        <h3 class="awards-ledger__title">${e.title}</h3>
-        <span class="awards-ledger__org">${e.org}</span>
+      <div class="archival-cell archival-cell--title">
+        <h3 class="archival-title">${e.title}</h3>
       </div>
-      <div class="awards-ledger__accent-col">
-        <svg class="awards-ledger__laurel" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="0.7">
-          <path d="M20 4C14 8 10 14 10 22c0 5 3 9 6 12"/>
-          <path d="M20 4C26 8 30 14 30 22c0 5-3 9-6 12"/>
-          <path d="M14 16c-2 2-3 5-3 8"/>
-          <path d="M26 16c2 2 3 5 3 8"/>
-          <circle cx="20" cy="4" r="1.5" fill="currentColor" stroke="none"/>
-        </svg>
+      <div class="archival-cell archival-cell--org">
+        <span class="archival-org">${e.org}</span>
       </div>
     </div>
   `).join(``)}
+        </div>
       </div>
     </div>
-  `,e}function Fc(){document.querySelectorAll(`.awards-ledger__row`).forEach((e,t)=>{let n=e.querySelector(`.awards-ledger__year-col`),r=e.querySelector(`.awards-ledger__dot`),i=e.querySelector(`.awards-ledger__vert-line`),a=e.querySelector(`.awards-ledger__info-col`),o=e.querySelector(`.awards-ledger__laurel`);hi.timeline({scrollTrigger:{trigger:e,start:`top 88%`,toggleActions:`play none none none`}}).fromTo(r,{scale:0,opacity:0},{scale:1,opacity:1,duration:.4,ease:`back.out(2)`}).fromTo(i,{scaleY:0},{scaleY:1,duration:.5,ease:`power2.out`},`-=0.2`).fromTo(n,{opacity:0,x:-30},{opacity:1,x:0,duration:.6,ease:`power3.out`},`-=0.4`).fromTo(a,{opacity:0,x:30},{opacity:1,x:0,duration:.6,ease:`power3.out`},`-=0.5`).fromTo(o,{opacity:0,scale:.6,rotation:-10},{opacity:1,scale:1,rotation:0,duration:.5,ease:`power2.out`},`-=0.3`)})}function Ic(){let e=document.createElement(`footer`);return e.className=`monolith-footer`,e.id=`footer`,e.innerHTML=`
+  `,e}function Fc(){document.querySelectorAll(`.archival-row`).forEach((e,t)=>{hi.fromTo(e,{opacity:0,y:30},{opacity:1,y:0,duration:.8,ease:`power3.out`,scrollTrigger:{trigger:e,start:`top 90%`,toggleActions:`play none none none`}})})}function Ic(){let e=document.createElement(`footer`);return e.className=`monolith-footer`,e.id=`footer`,e.innerHTML=`
     <!-- Stone Texture SVG Filter Definition -->
     <svg style="width:0; height:0; position:absolute; pointer-events:none;">
       <filter id="heavy-stone">
