@@ -11,23 +11,23 @@
       <!-- Left Column: Typography -->
       <div class="cover__text-col">
         <div class="cover__folio">
-          <span>ISA ARCHITECTURE &amp; DESIGN</span>
-          <span>ISSUE N°01</span>
+          <span>ISA АРХИТЕКТУРНОЕ БЮРО</span>
+          <span>ТОМ ПЕРВЫЙ</span>
         </div>
 
         <h1 class="cover__title">
-          <span class="cover__title-word" id="heroT1">FUNDA</span><br>
-          <span class="cover__title-word cover__title-word--indent" id="heroT2">MENTAL</span>
+          <span class="cover__title-word" id="heroT1">ФУНДА</span><br>
+          <span class="cover__title-word cover__title-word--indent" id="heroT2">МЕНТ</span>
         </h1>
 
         <div class="cover__barcodes">
           <div class="cover__desc">
-            Безупречный стиль и бескомпромиссное качество в каждом проекте. Архитектура нового времени.
+            Архитектура вне времени. Инженерия без компромиссов. Создаем пространства, продиктованные силой формы и чистой эстетикой камня и металла.
           </div>
           <div class="cover__stats">
-            <div><strong>150+</strong> Проектов</div>
-            <div><strong>12</strong> Лет опыта</div>
-            <div><strong>25</strong> Лет гарантии</div>
+            <div><strong>150+</strong> ОБЪЕКТОВ</div>
+            <div><strong>12</strong> ЛЕТ ДИСЦИПЛИНЫ</div>
+            <div><strong>25</strong> ЛЕТ ГАРАНТИИ</div>
           </div>
         </div>
       </div>
@@ -39,10 +39,10 @@
         </div>
       </div>
     </div>
-  `,e}function ic(){hi.timeline({defaults:{ease:`expo.out`}}).fromTo(`.cover__img-wrap`,{clipPath:`inset(100% 0 0 0)`},{clipPath:`inset(0% 0 0 0)`,duration:1.5,ease:`power3.inOut`}).fromTo(`.cover__img`,{scale:1.2},{scale:1,duration:2,ease:`power2.out`},`-=1.5`).fromTo(`.cover__folio`,{opacity:0,y:-20},{opacity:1,y:0,duration:1},`-=1.2`).fromTo(`#heroT1`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=1`).fromTo(`#heroT2`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=0.9`).fromTo(`.cover__barcodes`,{opacity:0},{opacity:1,duration:1},`-=0.5`),hi.to(`.cover__img`,{scrollTrigger:{trigger:`.cover`,start:`top top`,end:`bottom top`,scrub:!0},yPercent:15,ease:`none`})}var ac=`/isasite/assets/portfolio-arch-WPAjTr2s.png`,oc=`/isasite/assets/portfolio-design-DkQb1749.png`,sc=`/isasite/assets/portfolio-landscape-DUKQTMdj.png`,cc=`/isasite/assets/portfolio-gates-DKivyY0b.png`,lc=`/isasite/assets/team-photo-BrvMFNTk.png`,uc=[{id:`architecture`,name:`Villa «Sochi»`,category:`Архитектура`,image:ac,title:`Архитектура`,description:`Проектируем дома и виллы, которые становятся архитектурными доминантами. Каждый проект — это синтез функциональности, эстетики и инженерной точности. От концепции до авторского надзора.`,cta:`Смотреть проекты`},{id:`design`,name:`Penthouse «Moscow»`,category:`Дизайн`,image:oc,title:`Дизайн интерьеров`,description:`Создаём пространства, в которых хочется жить. Премиальные материалы, авторская мебель, продуманный свет. Каждый интерьер — отражение характера владельца.`,cta:`Смотреть проекты`},{id:`landscape`,name:`Парк «Patriot»`,category:`Благоустройство`,image:sc,title:`Благоустройство`,description:`Превращаем территорию в продолжение дома. Ландшафтный дизайн, мощение, системы освещения и полива. Создаём ощущение приватного парка.`,cta:`Смотреть проекты`},{id:`gates`,name:`Metal Gate`,category:`Ворота`,image:cc,title:`Ворота`,description:`Собственное производство. Кованые и автоматические ворота из высоколегированной стали. Каждое изделие — ручная работа с гарантией 25 лет. Фактура металла, которую хочется трогать.`,cta:`Смотреть каталог`}],dc=[{id:1,name:`Резиденция «Эльбрус»`,category:`architecture`,image:ac,size:`tall`},{id:2,name:`Пентхаус «Москва-Сити»`,category:`design`,image:oc,size:`normal`},{id:3,name:`Кованые ворота «Крепость»`,category:`gates`,image:cc,size:`wide`},{id:4,name:`Парк «Патриот»`,category:`landscape`,image:sc,size:`normal`},{id:5,name:`Вилла «Сочи»`,category:`architecture`,image:nc,size:`normal`},{id:6,name:`Лофт «Грозный»`,category:`design`,image:oc,size:`tall`},{id:7,name:`Усадьба «Кавказ»`,category:`architecture`,image:ac,size:`normal`},{id:8,name:`Террасный сад «Мирный»`,category:`landscape`,image:sc,size:`wide`},{id:9,name:`Ворота «Империал»`,category:`gates`,image:cc,size:`tall`},{id:10,name:`Апартаменты «Высота»`,category:`design`,image:oc,size:`normal`}],fc={tag:`Наша философия`,title:`Мы строим то, что
-будет стоять
-веками.`,texts:[`Наш подход — фундаментальный. За каждым проектом стоит мужское слово, команда профессионалов и безупречный вкус. Мы не гонимся за трендами — мы создаём то, что будет актуально через десятилетия.`,`Прозрачность на каждом этапе. Вы всегда знаете, что происходит с вашим проектом, и можете быть уверены в результате.`],image:lc,values:[{number:`150+`,label:`Проектов`},{number:`12`,label:`Лет опыта`},{number:`98%`,label:`Довольных клиентов`},{number:`25`,label:`Лет гарантии`}]},pc={ctaTag:`Начнём сотрудничество`,ctaTitle:`Обсудим ваш
-проект?`,contacts:[{label:`Телефон`,value:`+7 (928) 000-00-00`},{label:`Email`,value:`info@isa-design.ru`},{label:`Адрес`,value:`г. Грозный, пр. Путина, 1`}],socials:[`telegram`,`whatsapp`,`instagram`],copyright:`© 2026 ISA Architecture & Design. Все права защищены.`},mc=[{label:`Главная`,href:`#hero`},{label:`Направления`,href:`#stories`},{label:`Портфолио`,href:`#portfolio`},{label:`О нас`,href:`#philosophy`},{label:`Контакты`,href:`#footer`}],hc=`/isasite/%D0%98%D1%81%D0%B0_%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9.svg`;function gc(){let e=document.createElement(`nav`);return e.className=`nav-bar`,e.id=`navBar`,e.innerHTML=`
+  `,e}function ic(){hi.timeline({defaults:{ease:`expo.out`}}).fromTo(`.cover__img-wrap`,{clipPath:`inset(100% 0 0 0)`},{clipPath:`inset(0% 0 0 0)`,duration:1.5,ease:`power3.inOut`}).fromTo(`.cover__img`,{scale:1.2},{scale:1,duration:2,ease:`power2.out`},`-=1.5`).fromTo(`.cover__folio`,{opacity:0,y:-20},{opacity:1,y:0,duration:1},`-=1.2`).fromTo(`#heroT1`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=1`).fromTo(`#heroT2`,{y:50,opacity:0,rotation:2},{y:0,opacity:1,rotation:0,duration:1.2},`-=0.9`).fromTo(`.cover__barcodes`,{opacity:0},{opacity:1,duration:1},`-=0.5`),hi.to(`.cover__img`,{scrollTrigger:{trigger:`.cover`,start:`top top`,end:`bottom top`,scrub:!0},yPercent:15,ease:`none`})}var ac=`/isasite/assets/portfolio-arch-WPAjTr2s.png`,oc=`/isasite/assets/portfolio-design-DkQb1749.png`,sc=`/isasite/assets/portfolio-landscape-DUKQTMdj.png`,cc=`/isasite/assets/portfolio-gates-DKivyY0b.png`,lc=`/isasite/assets/team-photo-BrvMFNTk.png`,uc=[{id:`architecture`,name:`Villa «Sochi»`,category:`Архитектура`,image:ac,title:`Архитектурный массив`,description:`Проектирование объектов капитального строительства. Монументальные виллы и резиденции. Чистая геометрия, диктующая правила гравитации. Полный цикл от эскиза до монолита.`,cta:`В АРХИВ`},{id:`design`,name:`Penthouse «Moscow»`,category:`Дизайн`,image:oc,title:`Внутренняя архитектура`,description:`Проектирование объема изнутри. Тактильность премиальных материалов. Интерьеры, где каждый соединительный узел проработан с абсолютной инженерной точностью.`,cta:`В АРХИВ`},{id:`landscape`,name:`Парк «Patriot»`,category:`Благоустройство`,image:sc,title:`Инженерный ландшафт`,description:`Формирование внешнего радиуса. Интеграция грубого бетона, кортеновской стали и реликтовых растений. Подчинение природного хаоса строгой, читаемой сетке.`,cta:`В АРХИВ`},{id:`gates`,name:`Metal Gate`,category:`Ворота`,image:cc,title:`Тяжелая металлургия`,description:`Собственное цеховое производство. Кастомные въездные группы из высоколегированной стали. Ручная ковка, возведенная в абсолют ради доминирующей физической эстетики.`,cta:`В АРХИВ`}],dc=[{id:1,name:`Резиденция «Эльбрус»`,category:`architecture`,image:ac,size:`tall`},{id:2,name:`Пентхаус «Москва-Сити»`,category:`design`,image:oc,size:`normal`},{id:3,name:`Кованые ворота «Крепость»`,category:`gates`,image:cc,size:`wide`},{id:4,name:`Парк «Патриот»`,category:`landscape`,image:sc,size:`normal`},{id:5,name:`Вилла «Сочи»`,category:`architecture`,image:nc,size:`normal`},{id:6,name:`Лофт «Грозный»`,category:`design`,image:oc,size:`tall`},{id:7,name:`Усадьба «Кавказ»`,category:`architecture`,image:ac,size:`normal`},{id:8,name:`Террасный сад «Мирный»`,category:`landscape`,image:sc,size:`wide`},{id:9,name:`Ворота «Империал»`,category:`gates`,image:cc,size:`tall`},{id:10,name:`Апартаменты «Высота»`,category:`design`,image:oc,size:`normal`}],fc={tag:`Архитектурная доктрина`,title:`ЗА КАЖДЫМ
+ОБЪЕКТОМ —
+ДИСЦИПЛИНА.`,texts:[`Мы презираем быструю моду. Архитектура ISA — это грубый бетон, холодный металл и натуральный камень, слитые воедино. Мы создаем структурные объекты, которые становятся физическим наследием, способным выдержать испытание временем.`,`Тотальный контроль цикла. От математического расчета несущих конструкций до финишной полировки травертина. Никаких компромиссов. Только холодная инженерная логика и ультимативное качество.`],image:lc,values:[{number:`150+`,label:`МОНУМЕНТОВ`},{number:`12`,label:`ЛЕТ СТАЖА`},{number:`100%`,label:`ДИСЦИПЛИНА`},{number:`∞`,label:`ОТВЕТСТВЕННОСТЬ`}]},pc={ctaTag:`Синхронизация`,ctaTitle:`ВОЗДВИГНЕМ
+МОНУМЕНТ?`,contacts:[{label:`КОММУНИКАЦИЯ`,value:`+7 (928) 000-00-00`},{label:`ТРАНСЛЯЦИЯ`,value:`INFO@ISA-DESIGN.RU`},{label:`ДИСЛОКАЦИЯ`,value:`Г. ГРОЗНЫЙ, ПР. ПУТИНА, 1`}],socials:[`telegram`,`whatsapp`,`instagram`],copyright:`© 2026 ISA ARCHITECTURE. ДОКТРИНА УТВЕРЖДЕНА.`},mc=[{label:`Главная`,href:`#hero`},{label:`Направления`,href:`#stories`},{label:`Портфолио`,href:`#portfolio`},{label:`О нас`,href:`#philosophy`},{label:`Контакты`,href:`#footer`}],hc=`/isasite/%D0%98%D1%81%D0%B0_%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9.svg`;function gc(){let e=document.createElement(`nav`);return e.className=`nav-bar`,e.id=`navBar`,e.innerHTML=`
     <div class="nav-bar__inner">
       <div class="nav-bar__logo">
         <img src="${hc}" alt="ISA" class="nav-bar__logo-img" />
@@ -107,14 +107,14 @@
         <div class="editorial-plate__inner">
             <!-- Left Column: Dense Editor's Note -->
             <div class="editorial-plate__text-col scroll-reveal">
-                <span class="editorial-plate__label">EDITOR'S NOTE // 01</span>
+                <span class="editorial-plate__label">МАНИФЕСТ // 01</span>
                 <p class="editorial-plate__paragraph">
-                    Мы верим в архитектуру, которая преодолевает временные рамки. Наши проекты создаются не для того, чтобы соответствовать трендам одного сезона, а для того, чтобы стоять десятилетиями. Строгая геометрия, чистые пропорции и абсолютный контроль над пространством — это наш словарь. Мы берем тяжелый камень, фактурную глину и холодный металл, превращая их в монолитные произведения искусства. Баланс между природной монументальностью и человеческим масштабом.
+                    Мы отвергаем визуальный шум. Архитектура — это акт бескомпромиссного подчинения пространства. Наши проекты создаются не для того, чтобы соответствовать мимолетным трендам, а чтобы формировать монолитное физическое наследие. Строгая геометрия, математически выверенные пропорции и абсолютный инженерный контроль — это наш базовый словарь. Мы берем тяжелый бетон, структурный камень и высоколегированную сталь, интегрируя их в единую доминирующую форму. Это абсолютный баланс между агрессивной монументальностью и функциональной эргономикой.
                 </p>
                 <div class="editorial-plate__data-grid">
-                    <div class="data-item"><span>PROJECTS</span> <strong>120+</strong></div>
-                    <div class="data-item"><span>AWARDS</span> <strong>15</strong></div>
-                    <div class="data-item"><span>MEMBER</span> <strong>SRA ROSSIA</strong></div>
+                    <div class="data-item"><span>ОБЪЕКТЫ</span> <strong>150+</strong></div>
+                    <div class="data-item"><span>СТАТУС</span> <strong>ЛАУРЕАТ</strong></div>
+                    <div class="data-item"><span>РЕЕСТР</span> <strong>САР РОССИИ</strong></div>
                 </div>
             </div>
 
@@ -124,8 +124,8 @@
                     <img src="${ac}" alt="ISA Architecture Monument" class="editorial-plate__img" loading="lazy" />
                     <!-- Floating Frosted Glass Caption -->
                     <div class="editorial-plate__glass-caption">
-                        <span class="glass-caption__title">VILLA SOCHI (FRAG.)</span>
-                        <span class="glass-caption__meta">PH: A. STEPANOV // 2024</span>
+                        <span class="glass-caption__title">VILLA SOCHI (БЕТОН)</span>
+                        <span class="glass-caption__meta">КАМЕРА: А. СТЕПАНОВ // 2024</span>
                     </div>
                 </div>
             </div>
@@ -268,11 +268,11 @@
       <div class="philosophy__top-inner">
         <div class="philosophy__tag scroll-reveal">
           <span class="philosophy__tag-line"></span>
-          <span class="philosophy__tag-text">О компании</span>
+          <span class="philosophy__tag-text">Архитектурная доктрина</span>
         </div>
         <h2 class="philosophy__headline scroll-reveal" data-delay="1">
-          <span class="philosophy__headline-main">За каждым проектом —</span>
-          <span class="philosophy__headline-accent">команда, слово, результат.</span>
+          <span class="philosophy__headline-main">ЗА КАЖДЫМ ОБЪЕКТОМ —</span>
+          <span class="philosophy__headline-accent">ДИСЦИПЛИНА И ФОРМА.</span>
         </h2>
       </div>
     </div>
@@ -287,14 +287,10 @@
 
         <div class="philosophy__text-col">
           <p class="philosophy__text scroll-reveal">
-            Наш подход — фундаментальный. Мы не гонимся за трендами —
-            мы создаём то, что будет актуально через десятилетия.
-            Безупречный вкус, инженерная точность, прозрачность на каждом этапе.
+            Мы презираем быструю моду. Архитектура ISA — это грубый бетон, холодный металл и натуральный камень, слитые воедино. Мы возводим структурные объекты, которые становятся физическим наследием, способным выдержать испытание временем.
           </p>
           <p class="philosophy__text scroll-reveal" data-delay="1">
-            Вы всегда знаете, что происходит с вашим проектом.
-            От первого эскиза до сдачи ключей — каждый шаг
-            под контролем.
+            Тотальный контроль цикла. От математического расчета несущих конструкций до финишной полировки камня. Никаких компромиссов. Только холодная инженерная логика и ультимативное качество.
           </p>
 
           <div class="philosophy__stats">
@@ -314,7 +310,7 @@
       
       <div class="archival-ledger">
         <div class="archival-ledger__inner">
-          ${[{year:`2024`,title:`Лучший архитектурный проект`,org:`Architecture Awards СКФО`,category:`Архитектура`},{year:`2023`,title:`Премия за дизайн интерьера`,org:`Interior Design Russia`,category:`Дизайн`},{year:`2022`,title:`Инновации в благоустройстве`,org:`Urban Design Forum`,category:`Ландшафт`},{year:`2021`,title:`Мастер ковки и металла`,org:`Craft & Design Award`,category:`Производство`}].map((e,t)=>`
+          ${[{year:`2024`,title:`Фундаментальная архитектура`,org:`Союз Архитекторов`,category:`МАКРОФОРМА`},{year:`2023`,title:`Гран-при: Инженерный дизайн`,org:`Urban Design Russia`,category:`ВТУТРЕННИЙ ОБЪЕМ`},{year:`2022`,title:`Инновации в благоустройстве`,org:`Ландшафтный Форум`,category:`ИНЖЕНЕРНЫЙ ЛАНДШАФТ`},{year:`2021`,title:`Абсолют формообразования`,org:`Фонд Архитектурного Наследия`,category:`ТЯЖЕЛАЯ МЕТАЛЛУРГИЯ`}].map((e,t)=>`
     <div class="archival-row" data-index="${t}">
       <div class="archival-cell archival-cell--year">
         <span class="archival-year">${e.year}</span>
@@ -353,7 +349,7 @@
     <div class="monolith-footer__inner">
       <!-- Full-width Engraved Monument Title -->
       <div class="monolith-footer__monument scroll-reveal">
-        <h2 class="monolith-title">LET'S BUILD A MONUMENT</h2>
+        <h2 class="monolith-title">ВОЗДВИГНЕМ МОНУМЕНТ</h2>
       </div>
 
       <div class="monolith-footer__grid">
@@ -391,14 +387,14 @@
         <div class="monolith-col monolith-col--form scroll-reveal" data-delay="2">
           <form class="monolith-form" id="contactForm" onsubmit="return false;">
             <div class="monolith-form__row">
-              <input type="text" class="monolith-input carved-input" placeholder="ИМЯ" required />
-              <input type="tel" class="monolith-input carved-input" placeholder="ТЕЛЕФОН" required />
+              <input type="text" class="monolith-input carved-input" placeholder="ИНИЦИАТОР (ИМЯ)" required />
+              <input type="tel" class="monolith-input carved-input" placeholder="КАНАЛ СВЯЗИ" required />
             </div>
             <div class="monolith-form__row">
-              <textarea class="monolith-input carved-input monolith-textarea" placeholder="ДЕТАЛИ ПРОЕКТА" rows="1"></textarea>
+              <textarea class="monolith-input carved-input monolith-textarea" placeholder="СПЕЦИФИКАЦИЯ ОБЪЕКТА" rows="1"></textarea>
             </div>
             <button type="submit" class="monolith-submit hover-target">
-              ИНИЦИИРОВАТЬ ПРОЕКТ
+              УТВЕРДИТЬ ИНИЦИАТИВУ
             </button>
           </form>
         </div>
