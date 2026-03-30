@@ -358,24 +358,44 @@
     <div class="monolith-footer__texture"></div>
     
     <div class="monolith-footer__inner">
-      <div class="monolith-footer__grid">
-        
-        <!-- Engraved Monument Title -->
-        <div class="monolith-footer__monument scroll-reveal">
-          <h2 class="monolith-title carved-text">LET'S BUILD<br>A MONUMENT</h2>
-        </div>
+      <!-- Full-width Engraved Monument Title -->
+      <div class="monolith-footer__monument scroll-reveal">
+        <h2 class="monolith-title">LET'S BUILD A MONUMENT</h2>
+      </div>
 
-        <!-- Brutalist Contact Form & Details -->
-        <div class="monolith-footer__content scroll-reveal" data-delay="1">
+      <div class="monolith-footer__grid">
+        <!-- Col 1: Contacts -->
+        <div class="monolith-col scroll-reveal" data-delay="1">
           <div class="monolith-contacts">
             ${pc.contacts.map(e=>`
     <div class="monolith-contact">
       <span class="monolith-contact__label">${e.label}</span>
-      <span class="monolith-contact__value carved-text-sm">${e.value}</span>
+      <span class="monolith-contact__value">${e.value}</span>
     </div>
   `).join(``)}
           </div>
+        </div>
 
+        <!-- Col 2: Architectural Data -->
+        <div class="monolith-col scroll-reveal" data-delay="1.5">
+          <div class="monolith-contacts">
+            <div class="monolith-contact">
+              <span class="monolith-contact__label">РАБОЧИЕ ЧАСЫ</span>
+              <span class="monolith-contact__value">ПН-ПТ // 10:00 - 19:00</span>
+            </div>
+            <div class="monolith-contact">
+              <span class="monolith-contact__label">КООРДИНАТЫ</span>
+              <span class="monolith-contact__value">43°19'08"N 45°41'37"E</span>
+            </div>
+            <div class="monolith-contact">
+              <span class="monolith-contact__label">ЛИЦЕНЗИЯ СРО</span>
+              <span class="monolith-contact__value">П-040-05112009</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 3: Brutalist Form -->
+        <div class="monolith-col monolith-col--form scroll-reveal" data-delay="2">
           <form class="monolith-form" id="contactForm" onsubmit="return false;">
             <div class="monolith-form__row">
               <input type="text" class="monolith-input carved-input" placeholder="ИМЯ" required />
@@ -384,12 +404,11 @@
             <div class="monolith-form__row">
               <textarea class="monolith-input carved-input monolith-textarea" placeholder="ДЕТАЛИ ПРОЕКТА" rows="1"></textarea>
             </div>
-            <button type="submit" class="monolith-submit hover-target carved-text-sm">
+            <button type="submit" class="monolith-submit hover-target">
               ИНИЦИИРОВАТЬ ПРОЕКТ
             </button>
           </form>
         </div>
-
       </div>
 
       <div class="monolith-footer__bottom">
