@@ -10,9 +10,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: clamp(60px, 8vw, 120px) var(--side-padding) clamp(40px, 5vw, 80px);
+    padding: clamp(32px, 4vw, 60px) var(--side-padding) clamp(24px, 3vw, 48px);
   `,t.innerHTML=`
-    <img src="${rc}" alt="ISA Logo" class="hero-intro-img" style="width: 100%; max-width: 400px; filter: brightness(0) opacity(0.95);" />
+    <img src="${rc}" alt="ISA Architecture & Design — премиальное архитектурное бюро" class="hero-intro-img" style="width: 100%; max-width: 220px; filter: brightness(0) opacity(0.95);" />
   `;let n=document.createElement(`section`);return n.className=`cover`,n.id=`hero`,n.innerHTML=`
     <div class="cover__grid">
       <!-- Left Column: Typography -->
@@ -42,7 +42,7 @@
       <!-- Right Column: Image -->
       <div class="cover__img-col">
         <div class="cover__img-wrap">
-          <img src="${nc}" alt="ISA Architecture" class="cover__img" />
+          <img src="${nc}" alt="Авторский архитектурный проект виллы премиум-класса — ISA Architecture" class="cover__img" />
         </div>
       </div>
     </div>
@@ -77,7 +77,7 @@
         ${dc.map((e,t)=>`
     <div class="story-card" data-index="${t}">
       <div class="story-card__img-wrapper">
-        <img src="${e.image}" alt="${e.category}" loading="lazy" class="story-card__img"/>
+        <img src="${e.image}" alt="${e.name} — ${e.category} от ISA Architecture" loading="lazy" class="story-card__img"/>
       </div>
       <div class="story-card__content">
         <span class="story-card__meta">${String(t+1).padStart(2,`0`)} // ${e.category}</span>
@@ -128,7 +128,7 @@
             <!-- Right Column: Towering Editorial Photograph -->
             <div class="editorial-plate__photo-col">
                 <div class="editorial-plate__photo-wrap scroll-reveal">
-                    <img src="${oc}" alt="ISA Architecture Monument" class="editorial-plate__img" loading="lazy" />
+                    <img src="${oc}" alt="Архитектурный проект виллы из бетона и камня — ISA Architecture" class="editorial-plate__img" loading="lazy" />
                     <!-- Floating Frosted Glass Caption -->
                     <div class="editorial-plate__glass-caption">
                         <span class="glass-caption__title">VILLA SOCHI (БЕТОН)</span>
@@ -288,7 +288,7 @@
       <div class="philosophy__body-inner">
         <div class="philosophy__image-col scroll-reveal scroll-reveal--left">
           <div class="philosophy__image-frame">
-            <img src="${pc.image}" alt="Команда ISA" loading="lazy" />
+            <img src="${pc.image}" alt="Команда архитектурного бюро ISA — проектирование и дизайн премиум-класса" loading="lazy" />
           </div>
         </div>
 
@@ -394,8 +394,8 @@
         <div class="monolith-col monolith-col--form scroll-reveal" data-delay="2">
           <form class="monolith-form" id="contactForm" onsubmit="return false;">
             <div class="monolith-form__row">
-              <input type="text" class="monolith-input carved-input" placeholder="ИМЯ" required />
-              <input type="tel" class="monolith-input carved-input" placeholder="ТЕЛЕФОН" required />
+              <input type="text" class="monolith-input carved-input" placeholder="ИМЯ" required autocomplete="name" />
+              <input type="tel" class="monolith-input carved-input" placeholder="ТЕЛЕФОН" required autocomplete="tel" />
             </div>
             <div class="monolith-form__row">
               <textarea class="monolith-input carved-input monolith-textarea" placeholder="КРАТКОЕ ОПИСАНИЕ" rows="1"></textarea>
@@ -410,9 +410,9 @@
       <div class="monolith-footer__bottom">
         <span class="monolith-copyright carved-text-sm">${mc.copyright}</span>
         <div class="monolith-socials">
-          <a href="#" class="monolith-social carved-text-sm">TG</a>
-          <a href="#" class="monolith-social carved-text-sm">WA</a>
-          <a href="#" class="monolith-social carved-text-sm">IG</a>
+          <a href="#" class="monolith-social carved-text-sm" aria-label="Telegram" rel="noopener noreferrer">TG</a>
+          <a href="#" class="monolith-social carved-text-sm" aria-label="WhatsApp" rel="noopener noreferrer">WA</a>
+          <a href="#" class="monolith-social carved-text-sm" aria-label="Instagram" rel="noopener noreferrer">IG</a>
         </div>
       </div>
     </div>
